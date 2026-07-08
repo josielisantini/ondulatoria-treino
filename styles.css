@@ -216,3 +216,53 @@ section { margin-top: 18px; }
   .page-header h2 { font-size: 20px; }
   .current-exercise-card .big-title { font-size: 19px; }
 }
+/* AJUSTE FINAL — fundo claro igual aos cards */
+html,
+body,
+.app-shell,
+#app {
+  background: #F8F3E8 !important;
+  background-image: none !important;
+}
+
+.app-header {
+  background: #F8F3E8 !important;
+  background-image: none !important;
+}
+
+.hero {
+  background: #F8F3E8 !important;
+  background-image: none !important;
+  border: 1px solid rgba(40, 55, 74, 0.16) !important;
+  box-shadow: none !important;
+}
+
+.hero::before,
+.hero::after {
+  display: none !important;
+}
+
+.card,
+.quick-card,
+.workout-card,
+.exercise-row,
+.overview-card,
+.session-top-card,
+.current-exercise-card {
+  background: #F8F3E8 !important;
+  background-image: none !important;
+}
+
+.bottom-nav {
+  background: #28374A !important;
+}
+
+.primary-button {
+  background: #28374A !important;
+}
+
+.text-button,
+.eyebrow,
+.exercise-code {
+  color: #754437 !important;
+}
