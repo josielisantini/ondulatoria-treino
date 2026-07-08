@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="theme-color" content="#D3C7AD" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+  <meta name="apple-mobile-web-app-title" content="Ondulatória" />
+  <meta name="description" content="Controle pessoal de treino ondulatório." />
+  <link rel="manifest" href="manifest.webmanifest?v=9" />
+  <link rel="apple-touch-icon" href="apple-touch-icon.png" />
+  <link rel="stylesheet" href="styles.css?v=9" />
+  <title>Ondulatória</title>
+</head>
+<body>
+  <div class="app-shell">
+    <header class="app-header">
+      <div class="brand-block">
+        <div class="brand-icon" aria-hidden="true"></div>
+        <div>
+          <p class="eyebrow">SEU APP DE TREINO</p>
+          <h1>Ondulatória</h1>
+        </div>
+      </div>
+      <button class="icon-button" id="resetBtn" title="Limpar dados de teste" aria-label="Limpar dados de teste">↺</button>
+    </header>
+
+    <main id="app" aria-live="polite"></main>
+
+    <nav class="bottom-nav" aria-label="Navegação principal">
+      <button data-nav="home" class="nav-item active"><span>⌂</span><small>Hoje</small></button>
+      <button data-nav="workouts" class="nav-item"><span>▤</span><small>Treinos</small></button>
+      <button data-nav="pending" class="nav-item"><span>◷</span><small>Pendências</small></button>
+      <button data-nav="guide" class="nav-item"><span>◎</span><small>Guia</small></button>
+    </nav>
+  </div>
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+  <script src="app.js?v=9"></script>
+</body>
+</html>
