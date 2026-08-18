@@ -1,66 +1,279 @@
-const STORAGE_KEY = 'ondulatoria-v13';
+const STORAGE_KEY = 'ondulatoria-v14-planejamento02';
 const plan = {
-  name: 'Ondulatória',
+  name: 'Ondulatória 02',
   goal: 'Correção postural e definição',
-  validFrom: '2026-06-25',
-  validUntil: '2026-08-10',
+  validFrom: '2026-08-17',
+  validUntil: '2026-10-12',
   periodization: {
-    '01': { reps: '5 a 8', rest: '90 s a 120 s', css: 'type-01' },
-    '02': { reps: '8 a 12', rest: '60 s a 90 s', css: 'type-02' },
-    '03': { reps: '12 a 15', rest: '45 s a 60 s', css: 'type-03' },
-    '04': { reps: '15 a 20', rest: '30 s a 40 s', css: 'type-04' }
+  "01": {
+    "reps": "5 a 8",
+    "rest": "90 s a 120 s",
+    "css": "type-01"
   },
+  "02": {
+    "reps": "8 a 12",
+    "rest": "60 s a 90 s",
+    "css": "type-02"
+  },
+  "03": {
+    "reps": "12 a 15",
+    "rest": "45 s a 60 s",
+    "css": "type-03"
+  },
+  "04": {
+    "reps": "15 a 20",
+    "rest": "30 s a 40 s",
+    "css": "type-04"
+  }
+},
   cycle: {
-    start: '2026-06-22',
-    types: ['02', '02', '01', '01']
+    start: '2026-08-17',
+    // Planejamento 02: ciclo semanal conforme tabela do PDF.
+    // 17/08 e 24/08: T02; 31/08 e 07/09: T01; 14/09: T03; 21/09 e 28/09: T02; 05/10 e 12/10: T01.
+    types: ['02', '02', '01', '01', '03', '02', '02', '01', '01']
   },
   workouts: {
-    A: [
-      ['A1','Dead bug','3 x 12','https://www.youtube.com/shorts/HrxOWhPdsOY','Fazer com cadência: 3 s na subida e 3 s na descida.'],
-      ['A2','Abd. suspenso','3 x 10','https://www.youtube.com/shorts/Z4h2aIJGzFA',''],
-      ['A3','Puxada frontal · pegada neutra','3 x periodização','https://www.youtube.com/watch?v=tZSw0Y0R3jw&list=PL6KmC8RDDr9_mUmUHRmqlYfeWOvdx5UQj&index=53','Sequência de ativações.'],
-      ['A4','Remada sentada · pegada pronada','4 x periodização','https://www.youtube.com/watch?v=qw4FCBAA8DE&list=PL6KmC8RDDr9_mUmUHRmqlYfeWOvdx5UQj&index=31','Primeiro retrair as escápulas; depois puxar o peso.'],
-      ['A5','Crucifixo reto com halteres','3 x periodização','https://www.youtube.com/watch?v=gYh3r3x4tis','Manter os ombros estáveis do início ao fim, em neutro.'],
-      ['A6','Remada articulada neutra','3 x periodização','https://www.youtube.com/shorts/lwLr-OF109s','Sequência de ativações.'],
-      ['A7','Face pull','3 x 10','https://www.youtube.com/shorts/l_b3WS3DS0U','Primeiro retrair e depois puxar.'],
-      ['A8','Francês no cabo','3 x 12','https://www.youtube.com/shorts/LGdppdG-hsA','']
+  "A": [
+    [
+      "A1",
+      "Dead bug",
+      "3 x 12",
+      "https://www.youtube.com/shorts/HrxOWhPdsOY",
+      "Fazer com cadência: 3 s na subida e 3 s na descida."
     ],
-    B: [
-      ['B1','Cadeira abdutora inclinada à frente','4 x 10','https://www.youtube.com/watch?v=Io2AiAvAdmY&list=PL6KmC8RDDr9_mUmUHRmqlYfeWOvdx5UQj&index=10',''],
-      ['B2','Glúteo na polia com a perna estendida','3 x 8-12','https://www.youtube.com/watch?v=X4E_1uPxXdw&list=PL6KmC8RDDr9_mUmUHRmqlYfeWOvdx5UQj&index=74',''],
-      ['B3','Hack machine','3 x periodização','https://www.youtube.com/watch?v=-m7kAB6XPk4&list=PL6KmC8RDDr9_mUmUHRmqlYfeWOvdx5UQj&index=19',''],
-      ['B4','Mesa flexora','3 x periodização','https://www.youtube.com/watch?v=wmx3aCFbAsg&list=PL6KmC8RDDr9_mUmUHRmqlYfeWOvdx5UQj&index=24',''],
-      ['B5','Leg 180°','3 x periodização','https://www.youtube.com/watch?v=pfJEaQRhRC4&list=PL6KmC8RDDr9_mUmUHRmqlYfeWOvdx5UQj&index=21',''],
-      ['B6','Panturrilha 180°','3 x 15','https://www.youtube.com/shorts/N3FYMTnRAQM','']
+    [
+      "A2",
+      "Abd. suspenso",
+      "3 x 10",
+      "https://www.youtube.com/shorts/Z4h2aIJGzFA",
+      ""
     ],
-    C: [
-      ['C1','Abs. curto no banco declinado','3 x 10-12','https://www.youtube.com/watch?v=SbsYE6s7no8&list=PL6KmC8RDDr9_mUmUHRmqlYfeWOvdx5UQj&index=77',''],
-      ['C2','Elevação frontal em Y','3 x 8-12','https://www.youtube.com/watch?v=f3lRic54uSE&list=PL6KmC8RDDr9_mUmUHRmqlYfeWOvdx5UQj&index=94',''],
-      ['C3','Elevação lateral na máquina','3 x periodização','https://www.youtube.com/watch?v=GjXIfditfnM&list=PL6KmC8RDDr9_mUmUHRmqlYfeWOvdx5UQj&index=38',''],
-      ['C4','Elevação lateral com halter','3 x periodização','https://www.youtube.com/watch?v=kgPeE09m5D8&list=PL6KmC8RDDr9_mUmUHRmqlYfeWOvdx5UQj&index=36',''],
-      ['C5','Remada serrote','3 x periodização','https://www.youtube.com/watch?v=_kLoDq5O1BM&list=PL6KmC8RDDr9_mUmUHRmqlYfeWOvdx5UQj&index=30','Primeiro a retração de escápula; depois puxar.'],
-      ['C6','Bíceps Spider','3 x 10-12','https://www.youtube.com/watch?v=13LZrbM73b1k&list=PL6KmC8RDDr9_mUmUHRmqlYfeWOvdx5UQj&index=113','Máxima retração de escápula.'],
-      ['C7','Tríceps pulley com corda','3 x 10-12','https://www.youtube.com/watch?v=13HmWmexLvw&list=PL6KmC8RDDr9_mUmUHRmqlYfeWOvdx5UQj&index=101','']
+    [
+      "A3",
+      "Remada descendente na máquina",
+      "3 x periodização",
+      "https://www.youtube.com/watch?v=V-NEexFEEAg&list=PL6KmC8RDDr9_mUmUHRmqlYfeWOvdx5UQj&index=118",
+      "Sequência de ativações."
     ],
-    D: [
-      ['D1','Recuo alternado','3 x 10-12','https://www.youtube.com/shorts/SNR4pqTP7Co',''],
-      ['D2','Elevação pélvica unilateral','3 x 12','https://www.youtube.com/shorts/H_aWIaCxXBE',''],
-      ['D3','Agachamento livre','3 x periodização','https://www.youtube.com/watch?v=IJA5r-XOFLE&list=PL6KmC8RDDr9_mUmUHRmqlYfeWOvdx5UQj&index=2',''],
-      ['D4','Stiff B-Stance (stiff unilateral)','3 x periodização','https://www.youtube.com/watch?v=MWgoLL6CxEE&list=PL6KmC8RDDr9_mUmUHRmqlYfeWOvdx5UQj&index=111',''],
-      ['D5','Leg Press Angular','3 x periodização','https://www.youtube.com/watch?v=-lBxz2JQwoU&list=PL6KmC8RDDr9_mUmUHRmqlYfeWOvdx5UQj&index=117','']
+    [
+      "A4",
+      "Remada sentada · pegada pronada",
+      "3 x periodização",
+      "https://www.youtube.com/watch?v=qw4FCBAA8DE&list=PL6KmC8RDDr9_mUmUHRmqlYfeWOvdx5UQj&index=31",
+      "Sequência de ativações."
+    ],
+    [
+      "A5",
+      "Remada articulada neutra",
+      "3 x periodização",
+      "https://www.youtube.com/shorts/lwLr-OF109s",
+      "Sequência de ativações."
+    ],
+    [
+      "A6",
+      "Crucifixo inverso na máquina (voador)",
+      "3 x 10-12",
+      "https://www.youtube.com/watch?v=-20kSQg-rfo&list=PL6KmC8RDDr9_mUmUHRmqlYfeWOvdx5UQj&index=66",
+      "Manter máxima retração escapular."
+    ],
+    [
+      "A7",
+      "Desenvolvimento em pé",
+      "3 x periodização",
+      "https://www.youtube.com/shorts/5k7m-FaMiPQ",
+      "Manter máxima força no abdômen."
     ]
-  },
-  guides: [
-    ['Pés','Cuidar com o afastamento demasiado dos pés e com a abdução exagerada (ponta do pé muito para fora).','◒'],
-    ['Joelhos','Manter os joelhos alinhados às pontas dos pés, evitando rotação para dentro ou para fora.','⌁'],
-    ['Quadril e pelve','Não exagerar a amplitude: evitar retroversão pélvica e a perda da ativação do bracing.','⌁'],
-    ['Coluna','Preservar as curvaturas da coluna e manter o bracing ativado.','↕'],
-    ['Ombros','Manter rotação externa e deixar as escápulas acompanharem o movimento quando orientado.','◌'],
-    ['Bíceps e tríceps','Escápulas em neutro e bracing ativo; o cotovelo é a articulação que deve se mover.','↔'],
-    ['Costas e peitoral','Nas puxadas, abaixar e retrair escápulas antes de flexionar os cotovelos. Nas remadas, retrair antes de puxar. No peitoral, escápulas estáticas em neutro ou leve retração, salvo orientação diferente.','⇄'],
-    ['Panturrilhas','Manter o pé em neutro, evitando a queda para dentro; direcionar força para a borda lateral do pé.','⌄'],
-    ['Abdominais','Expirar ao máximo na fase concêntrica; não apoiar a cervical e preservar a tensão no abdômen.','◍']
+  ],
+  "B": [
+    [
+      "B1",
+      "Agachamento búlgaro com halter",
+      "3 x periodização",
+      "https://www.youtube.com/watch?v=Cp26sZcI03g&list=PL6KmC8RDDr9_mUmUHRmqlYfeWOvdx5UQj&index=95",
+      "Usar um halter em cada mão."
+    ],
+    [
+      "B2",
+      "Cadeira abdutora extensora (abdutora articulada)",
+      "3 x periodização",
+      "https://www.youtube.com/watch?v=msVXwFhjBxA&list=PL6KmC8RDDr9_mUmUHRmqlYfeWOvdx5UQj&index=82",
+      ""
+    ],
+    [
+      "B3",
+      "Hack machine",
+      "3 x periodização",
+      "https://www.youtube.com/watch?v=-m7kAB6XPk4&list=PL6KmC8RDDr9_mUmUHRmqlYfeWOvdx5UQj&index=19",
+      ""
+    ],
+    [
+      "B4",
+      "Mesa flexora",
+      "3 x periodização",
+      "https://www.youtube.com/watch?v=wmx3aCFbAsg&list=PL6KmC8RDDr9_mUmUHRmqlYfeWOvdx5UQj&index=24",
+      ""
+    ],
+    [
+      "B5",
+      "Cadeira flexora",
+      "3 x periodização",
+      "https://www.youtube.com/watch?v=5siJT_hYk-8&list=PL6KmC8RDDr9_mUmUHRmqlYfeWOvdx5UQj&index=12",
+      ""
+    ],
+    [
+      "B6",
+      "Panturrilha sentada na máquina",
+      "3 x 12-15",
+      "https://www.youtube.com/watch?v=Xc8k27rgbTU&list=PL6KmC8RDDr9_mUmUHRmqlYfeWOvdx5UQj&index=92",
+      ""
+    ]
+  ],
+  "C": [
+    [
+      "C1",
+      "Abd. suspenso",
+      "3 x 12",
+      "https://www.youtube.com/shorts/Z4h2aIJGzFA",
+      ""
+    ],
+    [
+      "C2",
+      "Puxada média supinada",
+      "3 x periodização",
+      "https://www.youtube.com/watch?v=agILdcvZNGU&list=PL6KmC8RDDr9_mUmUHRmqlYfeWOvdx5UQj&index=62",
+      ""
+    ],
+    [
+      "C3",
+      "Supino reto halteres",
+      "3 x periodização",
+      "https://www.youtube.com/shorts/63WPDh641tQ",
+      ""
+    ],
+    [
+      "C4",
+      "Remada curvada · pegada pronada",
+      "3 x periodização",
+      "https://www.youtube.com/watch?v=HunrZLlYfoc&list=PL6KmC8RDDr9_mUmUHRmqlYfeWOvdx5UQj&index=44",
+      "Manter máxima retração escapular."
+    ],
+    [
+      "C5",
+      "Bíceps bilateral halter",
+      "3 x 12-15",
+      "https://www.youtube.com/watch?v=m8UflzWx3LI&list=PL6KmC8RDDr9_mUmUHRmqlYfeWOvdx5UQj&index=71",
+      "Manter máxima retração escapular."
+    ],
+    [
+      "C6",
+      "Tríceps coice na polia",
+      "3 x 12",
+      "https://www.youtube.com/watch?v=H43B22KbOB8&list=PL6KmC8RDDr9_mUmUHRmqlYfeWOvdx5UQj&index=104",
+      "Manter máxima retração escapular."
+    ]
+  ],
+  "D": [
+    [
+      "D1",
+      "Elevação pélvica livre",
+      "3 x periodização",
+      "https://www.youtube.com/watch?v=1QJiPvRNt_M&list=PL6KmC8RDDr9_mUmUHRmqlYfeWOvdx5UQj&index=14",
+      ""
+    ],
+    [
+      "D2",
+      "Cadeira abdutora encostada",
+      "3 x periodização",
+      "https://www.youtube.com/watch?v=lX-oM3XV1zo&list=PL6KmC8RDDr9_mUmUHRmqlYfeWOvdx5UQj&index=9",
+      ""
+    ],
+    [
+      "D3",
+      "Levantamento terra sumô",
+      "3 x periodização",
+      "https://www.youtube.com/watch?v=zZrQTLTeq24&list=PL6KmC8RDDr9_mUmUHRmqlYfeWOvdx5UQj&index=57",
+      ""
+    ],
+    [
+      "D4",
+      "Glúteo na polia com a perna estendida",
+      "3 x 10-12",
+      "https://www.youtube.com/watch?v=X4E_1uPxXdw&list=PL6KmC8RDDr9_mUmUHRmqlYfeWOvdx5UQj&index=74",
+      ""
+    ],
+    [
+      "D5",
+      "Cadeira extensora unilateral",
+      "3 x periodização",
+      "",
+      ""
+    ],
+    [
+      "D6",
+      "Panturrilha 180°",
+      "3 x 15",
+      "https://www.youtube.com/shorts/N3FYMTnRAQM",
+      ""
+    ]
   ]
+},
+  guides: [
+  [
+    "Pés",
+    "Cuidar com o afastamento demasiado dos pés, assim como a abdução exagerada (ponta do pé para fora).",
+    "◒"
+  ],
+  [
+    "Joelhos",
+    "Manter os joelhos alinhados com as pontas dos pés, evitando rotação interna ou externa.",
+    "⌁"
+  ],
+  [
+    "Quadril/Pelve",
+    "Não exagerar na amplitude e evitar retroversão pélvica ou perda da ativação do bracing.",
+    "⌁"
+  ],
+  [
+    "Coluna",
+    "Manter as curvaturas da coluna preservadas, sem aumentar lordoses ou cifose, com bracing ativado.",
+    "↕"
+  ],
+  [
+    "Ombros",
+    "Manter o ombro em rotação externa e cuidar para que as escápulas acompanhem o movimento.",
+    "◌"
+  ],
+  [
+    "Bíceps/Tríceps",
+    "Manter escápulas em neutro e bracing ativado; durante a execução, apenas o cotovelo deve se mover.",
+    "↔"
+  ],
+  [
+    "Costas/Peitoral",
+    "Nas puxadas, realizar abaixamento e retração das escápulas antes de flexionar os cotovelos. Nas remadas, retrair antes de puxar. No peitoral, manter escápulas estáticas em neutro ou leve retração.",
+    "⇄"
+  ],
+  [
+    "Panturrilhas",
+    "Manter o pé em neutro, evitando que caia para dentro; direcionar a força para a borda lateral do pé.",
+    "⌄"
+  ],
+  [
+    "Abdominais",
+    "Realizar máxima expiração na fase concêntrica; não apoiar a cervical no chão e focar na qualidade do movimento.",
+    "◍"
+  ],
+  [
+    "Cardio",
+    "60 minutos semanais, mantendo média de 120 bpm; não deixar o cardio fácil, deve ficar ofegante.",
+    "♡"
+  ],
+  [
+    "Mobilidade",
+    "15 a 30 segundos por alongamento antes de todos os treinos.",
+    "◎"
+  ]
+]
 };
 
 let state = loadState();
@@ -294,7 +507,7 @@ function renderSession() {
         <h3 class="big-title">${escapeHtml(title)}</h3>
         <p class="subline">${escapeHtml(resolvedPrescription(rx, session.date))}</p>
         ${note ? `<div class="exercise-note"><strong>Atenção:</strong> ${escapeHtml(note)}</div>` : ''}
-        <div class="inline-actions"><a class="secondary-button" href="${video}" target="_blank" rel="noopener">Ver vídeo ↗</a><button class="ghost-button" data-action="toggle-done" data-code="${code}">${record.done ? 'Desmarcar' : 'Marcar como feito'}</button></div>
+        <div class="inline-actions">${video ? `<a class="secondary-button" href="${video}" target="_blank" rel="noopener">Ver vídeo ↗</a>` : `<span class="secondary-button" aria-disabled="true">Sem vídeo</span>`}<button class="ghost-button" data-action="toggle-done" data-code="${code}">${record.done ? 'Desmarcar' : 'Marcar como feito'}</button></div>
         <div class="field-grid">
           <div class="field"><label>Carga</label><input data-action="update-field" data-code="${code}" data-field="load" inputmode="decimal" placeholder="kg" value="${escapeHtml(record.load || '')}"></div>
           <div class="field"><label>Séries</label><input data-action="update-field" data-code="${code}" data-field="sets" inputmode="numeric" placeholder="3" value="${escapeHtml(record.sets || '')}"></div>
