@@ -456,6 +456,28 @@ h1 {
   background: var(--areia-card);
 }
 
+.compact-tools {
+  padding: 14px;
+}
+
+.compact-tools .inline-actions {
+  margin-top: 0;
+}
+
+.only-buttons {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.only-buttons > * {
+  flex: 1 1 180px;
+}
+
+.home-tools {
+  margin-top: 14px;
+}
+
 .overview-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -1038,7 +1060,7 @@ h1 {
 }
 
 /* V15 — séries por exercício e histórico; mantém fundo areia claro. */
-.bottom-nav{grid-template-columns:repeat(5,minmax(0,1fr));gap:3px;}
+.bottom-nav{grid-template-columns:repeat(4,minmax(0,1fr));gap:4px;}
 .nav-item{padding:9px 2px 7px;font-size:10px;min-width:0;}
 .nav-item small{font-size:10px;}
 .series-head{display:flex;justify-content:space-between;gap:8px;margin:17px 0 10px;color:var(--azul);font-size:13px;}
