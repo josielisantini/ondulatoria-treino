@@ -11,6 +11,10 @@
   <link rel="manifest" href="manifest.webmanifest?v=16" />
   <link rel="apple-touch-icon" href="apple-touch-icon.png?v=16" />
   <link rel="stylesheet" href="styles.css?v=16" />
+  <style>
+    /* Navegação em quatro abas, preservando o CSS e a sincronização da V16. */
+    .bottom-nav { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+  </style>
   <title>Ondulatória · Planejamento 03</title>
 </head>
 <body>
@@ -33,7 +37,6 @@
       <button data-nav="home" class="nav-item active"><span>⌂</span><small>Hoje</small></button>
       <button data-nav="workouts" class="nav-item"><span>▤</span><small>Treinos</small></button>
       <button data-nav="pending" class="nav-item"><span>◷</span><small>Pendências</small></button>
-      <button data-nav="guide" class="nav-item"><span>◎</span><small>Guia</small></button>
       <button data-nav="history" class="nav-item"><span>▦</span><small>Histórico</small></button>
     </nav>
   </div>
