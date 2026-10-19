@@ -1,0 +1,337 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="theme-color" content="#F8F3E8" />
+  <meta name="robots" content="noindex,nofollow" />
+  <title>Ondulatória · Migração protegida</title>
+  <style>
+    :root { color-scheme:light; font-family:-apple-system,BlinkMacSystemFont,"SF Pro Text","Segoe UI",sans-serif; --sand:#F8F3E8; --card:#FFF9ED; --blue:#28374A; --brown:#754437; --olive:#6B6751; --border:rgba(40,55,74,.14); }
+    * { box-sizing:border-box; } html,body { min-height:100%;margin:0;background:var(--sand);color:var(--blue); } body { padding:26px 16px 70px; }
+    main { width:min(100%,590px);margin:auto; }
+    a { color:var(--brown);font-weight:750; } .top { display:flex;justify-content:space-between;align-items:center;gap:12px;margin-bottom:23px; }
+    .brand {display:flex;align-items:center;gap:11px;}.icon {width:46px;height:46px;border-radius:16px;background:var(--blue);color:white;display:grid;place-items:center;font-size:25px;}.eyebrow {margin:0 0 2px;color:var(--brown);letter-spacing:1.2px;font-size:10px;font-weight:900;}.brand h1{margin:0;font-size:23px;letter-spacing:-.65px;}
+    .return {font-size:12px;text-align:right;text-decoration:none;} .card {background:var(--card);border-radius:23px;border:1px solid var(--border);box-shadow:0 12px 28px rgba(40,55,74,.06);padding:21px;margin:14px 0;}
+    h2 {margin:2px 0 10px;font-size:21px;letter-spacing:-.45px;} h3 {margin:0 0 7px;font-size:15px;} p {line-height:1.5;font-size:14px;} .muted {color:#596272;} .small {font-size:12px;color:#586171;} .tag {display:inline-block;margin-bottom:10px;background:#EDE0C8;color:var(--brown);padding:8px 11px;border-radius:100px;font-size:11px;font-weight:900;}
+    .notice {border-left:3px solid var(--brown);border-radius:0 10px 10px 0;padding:11px 13px;background:#F3E5D2;font-size:13px;line-height:1.5;} .kv {display:grid;grid-template-columns:1fr auto;gap:8px;padding:11px 0;border-bottom:1px solid var(--border);font-size:13px;} .kv:last-child{border:0;}.kv strong{text-align:right;overflow-wrap:anywhere;}
+    .file {display:block;border:1.5px dashed rgba(40,55,74,.3);background:#FFFCF5;border-radius:15px;padding:17px 13px;margin:13px 0;cursor:pointer;} input[type=file]{width:100%;font-size:13px;max-width:100%;} button {font:inherit;font-weight:800;border:0;border-radius:15px;padding:13px 16px;background:var(--blue);color:white;cursor:pointer;} button:disabled {opacity:.47;cursor:not-allowed;} button.secondary{background:#EFE4D1;color:var(--blue);border:1px solid var(--border);} .check {display:flex;align-items:flex-start;gap:10px;font-size:13px;line-height:1.45;margin:17px 0;} .check input{margin-top:3px;width:18px;height:18px;accent-color:var(--blue);flex:0 0 auto;} .actions{display:flex;gap:9px;flex-wrap:wrap;margin-top:12px;} .actions button{flex:1;}
+    #status {background:#EFE4D1;border:1px solid var(--border);padding:11px 13px;border-radius:13px;font-size:13px;line-height:1.45;} #status[data-kind=error]{background:#FAE8E1;color:#74382C;border-color:#D6A99B;} #status[data-kind=ok]{background:#E8EADD;border-color:#BDC5AA;} .hidden{display:none!important;}
+    #summary{font-size:15px;font-weight:850;} #versionList {font-size:12px;line-height:1.75;white-space:pre-line;color:#526070;} #alert{font-size:12px;line-height:1.55;color:#754437;} #log {font-family:ui-monospace,SFMono-Regular,Consolas,monospace;font-size:11px;line-height:1.65;white-space:pre-wrap;overflow:auto;max-height:270px;padding:13px;border-radius:14px;background:#F0E9DC;color:#28374A;min-height:70px;margin:11px 0 0;}
+    #completed {padding:13px;background:#E8EADD;border:1px solid #BDC5AA;border-radius:14px;font-size:13px;line-height:1.55;word-break:break-word;} .footer {margin-top:18px;font-size:12px;line-height:1.55;color:#596272;}
+  </style>
+</head>
+<body>
+<main>
+  <header class="top"><div class="brand"><div class="icon" aria-hidden="true">♡</div><div><p class="eyebrow">HISTÓRICO SEGURO</p><h1>Ondulatória</h1></div></div><a class="return" href="./">← Voltar<br>ao treino</a></header>
+  <section class="card">
+    <span class="tag">ETAPA 4 · MIGRAÇÃO DOS REGISTROS</span>
+    <h2>Seu histórico, agora na nuvem</h2>
+    <p class="muted">Vamos criar uma cópia dos seus registros no Supabase, <strong>sem alterar o aplicativo que você já usa no iPhone</strong>.</p>
+    <div class="notice"><strong>Primeiro o backup original.</strong> Só depois de confirmar essa cópia na nuvem, o sistema importa as sessões, exercícios, anotações e séries. Os dados históricos não são sobrescritos em novas tentativas.</div>
+  </section>
+  <section class="card">
+    <h3>1. Confira sua conta</h3>
+    <div class="kv"><span>Conta</span><strong id="account">Conferindo…</strong></div>
+    <div class="kv"><span>Backups na nuvem</span><strong id="backupsCount">—</strong></div>
+    <div class="actions"><button id="refreshBtn" class="secondary" type="button">Verificar login</button><a style="display:grid;align-items:center;flex:1;text-align:center;font-size:13px" href="conta.html">Abrir minha conta ↗</a></div>
+  </section>
+  <section class="card">
+    <h3>2. Escolha seu arquivo JSON</h3>
+    <p class="small">Use, de preferência, o <strong>backup mais recente</strong>, exportado pelo botão “↓ Backup” no seu Ondulatória instalado. Não envie o arquivo ao GitHub: selecione-o somente aqui, depois de abrir esta página no navegador.</p>
+    <label class="file" for="jsonFile">Selecionar backup do Ondulatória
+      <input id="jsonFile" type="file" accept=".json,application/json" aria-label="Selecionar backup JSON" />
+    </label>
+    <div id="preview" class="hidden">
+      <p id="summary"></p>
+      <p id="versionList"></p>
+      <p id="alert"></p>
+    </div>
+    <label class="check"><input type="checkbox" id="confirm" /><span>Confirmei que tenho uma cópia deste JSON guardada no iPhone, computador ou Google Drive. Quero importar os dados para minha conta do Supabase.</span></label>
+    <button type="button" id="importBtn" style="width:100%" disabled>Salvar histórico na nuvem</button>
+    <p class="small">Esta operação <strong>não instala a sincronização automática</strong> ainda. Não exclui registros existentes no Supabase ou no celular.</p>
+  </section>
+  <section class="card">
+    <h3>3. Resultado e conferência</h3>
+    <div id="status" data-kind="">Aguardando verificação da conta…</div>
+    <pre id="log" aria-live="polite">Nenhum arquivo enviado até agora.</pre>
+    <div id="completed" class="hidden" aria-live="polite"></div>
+  </section>
+  <p class="footer">Privacidade: o arquivo escolhido é lido neste navegador e enviado diretamente ao seu projeto Supabase depois da sua confirmação. Ele não é incluído no código público do GitHub. O acesso às tabelas depende de login e das políticas de segurança RLS.</p>
+</main>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.min.js"></script>
+<script>
+'use strict';
+const PROJECT_URL = 'https://njngekktobpeuonpmiyi.supabase.co';
+const PUBLISHABLE_KEY = 'sb_publishable_pEd4YdU51mUDwlziNgckGg_yrgPXJzR';
+const SOURCE_IDS = ['ondulatoria-v13','ondulatoria-v14-planejamento02','ondulatoria-v15-sessoes'];
+const ARCHIVE_ID = 'ondulatoria-v15-recuperacao';
+const PLAN_DETAILS = {"ondulatoria-v13":{"title":"Planejamento 01 · histórico anterior","valid_from":null,"valid_until":null,"archived":true,"prescription":{"workouts":{"A":{"A1":"Dead bug","A2":"Abd. suspenso","A3":"Puxada frontal · pegada neutra","A4":"Remada sentada · pegada pronada","A5":"Crucifixo reto com halteres","A6":"Remada articulada neutra","A7":"Face pull","A8":"Francês no cabo"},"B":{"B1":"Cadeira abdutora inclinada à frente","B2":"Glúteo na polia com a perna estendida","B3":"Hack machine","B4":"Mesa flexora","B5":"Leg 180°","B6":"Panturrilha 180°"},"C":{"C1":"Abs. curto no banco declinado","C2":"Elevação frontal em Y","C3":"Elevação lateral na máquina","C4":"Elevação lateral com halter","C5":"Remada serrote","C6":"Bíceps Spider","C7":"Tríceps pulley com corda"},"D":{"D1":"Recuo alternado","D2":"Elevação pélvica unilateral","D3":"Agachamento livre","D4":"Stiff B-Stance (stiff unilateral)","D5":"Leg Press Angular"}},"source":"ondulatoria-v13","historical_plan":true}},"ondulatoria-v14-planejamento02":{"title":"Planejamento 02 · ago–out/2026","valid_from":"2026-08-17","valid_until":"2026-10-12","archived":true,"prescription":{"workouts":{"A":{"A1":"Dead bug","A2":"Abd. suspenso","A3":"Remada descendente na máquina","A4":"Remada sentada · pegada pronada","A5":"Remada articulada neutra","A6":"Crucifixo inverso na máquina (voador)","A7":"Desenvolvimento em pé"},"B":{"B1":"Agachamento búlgaro com halter","B2":"Cadeira abdutora extensora (abdutora articulada)","B3":"Hack machine","B4":"Mesa flexora","B5":"Cadeira flexora","B6":"Panturrilha sentada na máquina"},"C":{"C1":"Abd. suspenso","C2":"Puxada média supinada","C3":"Supino reto halteres","C4":"Remada curvada · pegada pronada","C5":"Bíceps bilateral halter","C6":"Tríceps coice na polia"},"D":{"D1":"Elevação pélvica livre","D2":"Cadeira abdutora encostada","D3":"Levantamento terra sumô","D4":"Glúteo na polia com a perna estendida","D5":"Cadeira extensora unilateral","D6":"Panturrilha 180°"}},"source":"ondulatoria-v14-planejamento02","historical_plan":true}},"ondulatoria-v15-sessoes":{"title":"Planejamento 03 · out–dez/2026","valid_from":"2026-10-19","valid_until":"2026-12-12","archived":false,"prescription":{"id":"2026-10-19-ondulatoria03","name":"Ondulatória 03","goal":"Correção postural e definição","validFrom":"2026-10-19","validUntil":"2026-12-12","periodization":{"01":{"reps":"5 a 8","rest":"90 a 120 s","css":"type-01"},"02":{"reps":"8 a 12","rest":"60 a 90 s","css":"type-02"},"03":{"reps":"12 a 15","rest":"45 a 60 s","css":"type-03"},"04":{"reps":"15 a 20","rest":"30 a 40 s","css":"type-04"}},"weeks":[["2026-10-19","02"],["2026-10-26","02"],["2026-11-02","03"],["2026-11-09","01"],["2026-11-16","02"],["2026-11-23","02"],["2026-11-30","03"],["2026-12-07","01"]],"workouts":{"A":[["A1","Dead bug","3 x 12","https://www.youtube.com/shorts/HrxOWhPdsOY","Fazer com cadência: 3 s na subida e 3 s na descida."],["A2","Abd. suspenso","3 x 10","https://www.youtube.com/shorts/Z4h2aIJGzFA",""],["A3","Remada sentada na polia alta · pegada triângulo","3 x periodização","https://www.youtube.com/watch?v=7GKgbFsllM4&list=PL6KmC8RDDr9_mUmUHRmqlYfeWOvdx5UQj&index=29","Sequência de ativações."],["A4","Remada sentada · pegada pronada","3 x periodização","https://www.youtube.com/watch?v=qw4FCBAA8DE&list=PL6KmC8RDDr9_mUmUHRmqlYfeWOvdx5UQj&index=31","Sequência de ativações: primeiro retrair as escápulas, depois puxar o peso."],["A5","Puxada frontal · pegada pronada","3 x periodização","https://www.youtube.com/watch?v=YxkeE9viI_M&list=PL6KmC8RDDr9_mUmUHRmqlYfeWOvdx5UQj&index=61",""],["A6","Crucifixo inverso com halter","3 x periodização","https://www.youtube.com/watch?v=HRrfLCtbBdw&list=PL6KmC8RDDr9_mUmUHRmqlYfeWOvdx5UQj&index=67","Manter máxima retração escapular."],["A7","Bíceps martelo com halter","3 x 10","https://www.youtube.com/watch?v=TNmVy-UwHlE&list=PL6KmC8RDDr9_mUmUHRmqlYfeWOvdx5UQj&index=70","Manter máxima retração escapular."],["A8","Tríceps coice na polia","3 x 12","https://www.youtube.com/watch?v=H43B22KbOB8&list=PL6KmC8RDDr9_mUmUHRmqlYfeWOvdx5UQj&index=104","Manter máxima retração escapular."]],"B":[["B1","Cadeira abdutora inclinada à frente","4 x 10","https://www.youtube.com/watch?v=Io2AiAvAdmY&list=PL6KmC8RDDr9_mUmUHRmqlYfeWOvdx5UQj&index=10",""],["B2","Stiff com barra","3 x periodização","https://www.youtube.com/watch?v=NE4JojszA98&list=PL6KmC8RDDr9_mUmUHRmqlYfeWOvdx5UQj&index=55",""],["B3","Levantamento terra sumô","3 x periodização","https://www.youtube.com/watch?v=zZrQTLTeq24&list=PL6KmC8RDDr9_mUmUHRmqlYfeWOvdx5UQj&index=57",""],["B4","Mesa flexora","3 x periodização","https://www.youtube.com/watch?v=wmx3aCFbAsg&list=PL6KmC8RDDr9_mUmUHRmqlYfeWOvdx5UQj&index=24",""],["B5","Leg 180°","3 x periodização","https://www.youtube.com/watch?v=pfJEaQRhRC4&list=PL6KmC8RDDr9_mUmUHRmqlYfeWOvdx5UQj&index=21",""],["B6","Panturrilha 180°","3 x 15","https://www.youtube.com/shorts/N3FYMTnRAQM",""]],"C":[["C1","Dead bug","3 x 12","https://www.youtube.com/shorts/HrxOWhPdsOY",""],["C2","Elevação frontal em Y","3 x 8-12","https://www.youtube.com/watch?v=f3lRic54uSE&list=PL6KmC8RDDr9_mUmUHRmqlYfeWOvdx5UQj&index=94",""],["C3","Puxada média supinada","3 x periodização","https://www.youtube.com/watch?v=agILdcvZNGU&list=PL6KmC8RDDr9_mUmUHRmqlYfeWOvdx5UQj&index=62","Sequência de ativações."],["C4","Remada descendente na máquina","3 x periodização","https://www.youtube.com/watch?v=V-NEexFEEAg&list=PL6KmC8RDDr9_mUmUHRmqlYfeWOvdx5UQj&index=118",""],["C5","Remada curvada com halteres","3 x periodização","https://www.youtube.com/shorts/q3_TOqsX87s",""],["C6","Elevação lateral com halter","3 x periodização","https://www.youtube.com/watch?v=kgPeE09m5D8&list=PL6KmC8RDDr9_mUmUHRmqlYfeWOvdx5UQj&index=36",""],["C7","Tríceps testa com halter","3 x 12","https://www.youtube.com/watch?v=ajWYpj-Hzes&list=PL6KmC8RDDr9_mUmUHRmqlYfeWOvdx5UQj&index=88",""]],"D":[["D1","Afundo retrocesso no Smith","3 x 10-12","https://www.youtube.com/watch?v=eTtrP-aRAAo&list=PL6KmC8RDDr9_mUmUHRmqlYfeWOvdx5UQj&index=56",""],["D2","Elevação pélvica na máquina","3 x 12","https://www.youtube.com/watch?v=Nn4IVlx4bhk&list=PL6KmC8RDDr9_mUmUHRmqlYfeWOvdx5UQj&index=16",""],["D3","Cadeira abdutora 45°","4 x periodização","https://www.youtube.com/watch?v=5_vmufSHF0w&list=PL6KmC8RDDr9_mUmUHRmqlYfeWOvdx5UQj&index=8",""],["D4","Abdução lateral na polia","3 x periodização","https://www.youtube.com/shorts/Wuari88ArMY",""],["D5","Leg 45°","3 x periodização","https://www.youtube.com/watch?v=sIXq8Qg__Xo&list=PL6KmC8RDDr9_mUmUHRmqlYfeWOvdx5UQj&index=20",""],["D6","Agachamento sumô","3 x periodização","https://www.youtube.com/watch?v=w6Z4iGt0GXM&list=PL6KmC8RDDr9_mUmUHRmqlYfeWOvdx5UQj&index=116",""]]},"guides":[["Pés","Evitar afastamento e abdução exagerados dos pés.","◒"],["Joelhos","Manter joelhos alinhados às pontas dos pés.","⌁"],["Quadril e pelve","Evitar retroversão pélvica e preservar o bracing.","⌁"],["Coluna","Preservar curvaturas naturais e manter bracing.","↕"],["Ombros","Cuidar da rotação externa e acompanhar o movimento das escápulas.","◌"],["Costas e peitoral","Nas puxadas e remadas, ativar as escápulas antes de flexionar o cotovelo; para peitoral, mantê-las estáveis quando orientado.","⇄"],["Braços","Manter ombro estabilizado e mover o cotovelo.","↔"],["Panturrilhas","Manter os pés neutros, direcionando a força também para a borda lateral.","⌄"],["Abdominais","Expirar na fase concêntrica e focar na qualidade do movimento.","◍"],["Cardio","30 a 60 minutos semanais de aeróbio moderado; a ficha recomenda média de 120 bpm.","♡"],["Mobilidade","15 a 30 segundos por alongamento antes de todos os treinos.","◎"]]}}};
+const NAME_MAP = {"ondulatoria-v13":{"A":{"A1":"Dead bug","A2":"Abd. suspenso","A3":"Puxada frontal · pegada neutra","A4":"Remada sentada · pegada pronada","A5":"Crucifixo reto com halteres","A6":"Remada articulada neutra","A7":"Face pull","A8":"Francês no cabo"},"B":{"B1":"Cadeira abdutora inclinada à frente","B2":"Glúteo na polia com a perna estendida","B3":"Hack machine","B4":"Mesa flexora","B5":"Leg 180°","B6":"Panturrilha 180°"},"C":{"C1":"Abs. curto no banco declinado","C2":"Elevação frontal em Y","C3":"Elevação lateral na máquina","C4":"Elevação lateral com halter","C5":"Remada serrote","C6":"Bíceps Spider","C7":"Tríceps pulley com corda"},"D":{"D1":"Recuo alternado","D2":"Elevação pélvica unilateral","D3":"Agachamento livre","D4":"Stiff B-Stance (stiff unilateral)","D5":"Leg Press Angular"}},"ondulatoria-v14-planejamento02":{"A":{"A1":"Dead bug","A2":"Abd. suspenso","A3":"Remada descendente na máquina","A4":"Remada sentada · pegada pronada","A5":"Remada articulada neutra","A6":"Crucifixo inverso na máquina (voador)","A7":"Desenvolvimento em pé"},"B":{"B1":"Agachamento búlgaro com halter","B2":"Cadeira abdutora extensora (abdutora articulada)","B3":"Hack machine","B4":"Mesa flexora","B5":"Cadeira flexora","B6":"Panturrilha sentada na máquina"},"C":{"C1":"Abd. suspenso","C2":"Puxada média supinada","C3":"Supino reto halteres","C4":"Remada curvada · pegada pronada","C5":"Bíceps bilateral halter","C6":"Tríceps coice na polia"},"D":{"D1":"Elevação pélvica livre","D2":"Cadeira abdutora encostada","D3":"Levantamento terra sumô","D4":"Glúteo na polia com a perna estendida","D5":"Cadeira extensora unilateral","D6":"Panturrilha 180°"}},"ondulatoria-v15-sessoes":{"A":{"A1":"Dead bug","A2":"Abd. suspenso","A3":"Remada sentada na polia alta · pegada triângulo","A4":"Remada sentada · pegada pronada","A5":"Puxada frontal · pegada pronada","A6":"Crucifixo inverso com halter","A7":"Bíceps martelo com halter","A8":"Tríceps coice na polia"},"B":{"B1":"Cadeira abdutora inclinada à frente","B2":"Stiff com barra","B3":"Levantamento terra sumô","B4":"Mesa flexora","B5":"Leg 180°","B6":"Panturrilha 180°"},"C":{"C1":"Dead bug","C2":"Elevação frontal em Y","C3":"Puxada média supinada","C4":"Remada descendente na máquina","C5":"Remada curvada com halteres","C6":"Elevação lateral com halter","C7":"Tríceps testa com halter"},"D":{"D1":"Afundo retrocesso no Smith","D2":"Elevação pélvica na máquina","D3":"Cadeira abdutora 45°","D4":"Abdução lateral na polia","D5":"Leg 45°","D6":"Agachamento sumô"}}};
+const MAX_FILE_BYTES = 12 * 1024 * 1024;
+const get = (id) => document.getElementById(id);
+const lines = [];
+let selected = null;
+let signedInUser = null;
+let client = null;
+let migrating = false;
+function say(msg, level='') {
+  lines.push({msg,level});
+  get('log').textContent = lines.map(x=>x.msg).join('\n');
+  get('log').scrollTop = get('log').scrollHeight;
+  if (level === 'error') get('status').textContent = msg;
+}
+function showStatus(msg, kind='') {get('status').textContent=msg;get('status').dataset.kind=kind;}
+function isObject(o) {return !!o && typeof o === 'object' && !Array.isArray(o);}
+function validDate(s){if(!/^\d{4}-\d{2}-\d{2}$/.test(s||''))return false;const d=new Date(s+'T12:00:00Z');return !isNaN(d.getTime())&&d.toISOString().slice(0,10)===s;}
+function isoTimestamp(value){if(typeof value!=='number'||!Number.isFinite(value))return null;const d=new Date(value);const ms=d.getTime();return ms>946684800000 && ms<4102444800000 ? d.toISOString() : null;}
+function secondsIfPlausible(s,legacy){
+  if(legacy){
+    if(typeof s.startedAt!=='number'||typeof s.endedAt!=='number')return [null,false];
+    const diff=s.endedAt-s.startedAt;
+    return diff>=5*60000 && diff<=6*60*60000 ? [Math.round(diff/1000),true] : [null,false];
+  }
+  const elapsed=Number(s.elapsedMs);
+  if(s.status==='completed' && Number.isFinite(elapsed) && elapsed>=0 && elapsed<=6*60*60000) return [Math.round(elapsed/1000),true];
+  return [null,false];
+}
+function sanitizedLoad(v){
+  if(v===null||v===undefined||String(v).trim()==='')return null;
+  const x=String(v).trim();if(!/^\d{1,6}(?:[.,]\d{1,2})?$/.test(x))return null;
+  const n=Number(x.replace(',','.'));return Number.isFinite(n) && n<=999999 ? n : null;
+}
+function sanitizedReps(v){
+  const x=String(v===undefined||v===null?'':v).trim();
+  if(!/^\d{1,3}$/.test(x))return null;
+  const n=Number(x);return n>=0&&n<=999?n:null;
+}
+function parseBackup(data) {
+  if(!isObject(data)||data.format!=='ondulatoria-local-backup-v1'||!Array.isArray(data.entries))throw Error('O arquivo não é um backup JSON reconhecido do Ondulatória.');
+  const versions = new Map();
+  let validKeys=0;
+  const initialize=k=>{if(!versions.has(k))versions.set(k,{sessions:{},personalNotes:{}});return versions.get(k);};
+  const merge = (k,record,override)=>{
+    if(!SOURCE_IDS.includes(k)||!isObject(record))return;
+    const v=initialize(k);
+    if(isObject(record.sessions)){
+      for(const [key,session] of Object.entries(record.sessions)){
+        if(isObject(session) && (override||!(key in v.sessions)))v.sessions[key]=session;
+      }
+    }
+    if(isObject(record.personalNotes)){
+      for(const [code,note] of Object.entries(record.personalNotes)){
+        if(typeof note==='string' && (override||!(code in v.personalNotes)))v.personalNotes[code]=note;
+      }
+    }
+  };
+  // Primeiro: arquivos de recuperação, como fallback quando a chave antiga não existe mais.
+  for(const e of data.entries){
+    if(!e||e.key!==ARCHIVE_ID||typeof e.raw!=='string')continue;
+    let obj;try{obj=JSON.parse(e.raw);}catch(_){continue;}
+    if(isObject(obj?.entries)) for(const k of SOURCE_IDS)merge(k,obj.entries[k],false);
+  }
+  // Depois: as chaves locais prevalecem sobre cópias da recuperação.
+  for(const e of data.entries){
+    if(!e||!SOURCE_IDS.includes(e.key)||typeof e.raw!=='string')continue;
+    let obj;try{obj=JSON.parse(e.raw);}catch(_){throw Error('JSON inválido dentro da chave '+e.key+'. Nenhum dado enviado.');}
+    if(!isObject(obj))throw Error('Estrutura inválida em '+e.key+'.');
+    merge(e.key,obj,true);validKeys++;
+  }
+  const sessions=[],exercises=[],notes=[],sets=[],warnings=[];
+  for(const [sourceKey,content] of versions.entries()) {
+    for(const [key,s] of Object.entries(content.sessions)){
+      const date=s.date||key.split('_')[0];
+      const workout=s.workout||key.split('_')[1];
+      if(!validDate(date)||!['A','B','C','D'].includes(workout)) throw Error(`Data ou treino inválidos em ${sourceKey}/${key}. Pare e peça uma conferência; os dados não serão enviados.`);
+      const legacy=sourceKey!=='ondulatoria-v15-sessoes';
+      const [activeSeconds,durationVerified]=secondsIfPlausible(s,legacy);
+      const id=sourceKey+'::'+key;
+      sessions.push({id,sourceKey,key,workout,date,legacy,status:['started','partial','completed'].includes(s.status)?s.status:'partial',started_at:isoTimestamp(s.startedAt),ended_at:isoTimestamp(s.endedAt),active_seconds:activeSeconds,duration_is_verified:durationVerified,legacy_original:s});
+      for(const [code,record] of Object.entries(isObject(s.exercises)?s.exercises:{})){
+        if(!isObject(record))continue;
+        const name=(NAME_MAP[sourceKey]?.[workout]?.[code]) || (sourceKey==='ondulatoria-v15-sessoes' ? PLAN_DETAILS[sourceKey].prescription?.workouts?.[workout]?.find(x=>x[0]===code)?.[1] : null) || code;
+        const order=Number((code||'').match(/\d+$/)?.[0])||0;
+        const note = content.personalNotes[sourceKey==='ondulatoria-v15-sessoes' ? (PLAN_DETAILS[sourceKey].prescription.id+':'+code) : code];
+        exercises.push({id: id+'::'+code, sessionId:id,sourceKey,code,name,display_order:order,done:!!record.done,completed_at:isoTimestamp(record.completedAt),legacy_load:record.load===undefined?null:String(record.load),legacy_sets:record.sets===undefined?null:String(record.sets),legacy_reps:record.reps===undefined?null:String(record.reps),personal_note:typeof note==='string'?note:null,legacy_original:record});
+        if(Array.isArray(record.series)){
+          record.series.forEach((set,i)=>{
+            const kg=sanitizedLoad(set?.load),reps=sanitizedReps(set?.reps);
+            if(set?.load!==undefined && String(set.load).trim()!=='' && kg===null)warnings.push(`Carga não numérica preservada no backup: ${key}/${code}/série ${i+1}`);
+            if(set?.reps!==undefined && String(set.reps).trim()!=='' && reps===null)warnings.push(`Repetições fora do formato numérico: ${key}/${code}/série ${i+1}`);
+            sets.push({exerciseId:id+'::'+code,sourceKey,set_number:i+1,load_kg:kg,repetitions:reps,done:!!set?.done});
+          });
+        }
+      }
+    }
+    for(const [rawCode,text] of Object.entries(content.personalNotes)){
+      if(typeof text!=='string')continue;
+      let code=rawCode;
+      if(sourceKey==='ondulatoria-v15-sessoes'){
+        const prefix=PLAN_DETAILS[sourceKey].prescription.id+':';
+        if(code.startsWith(prefix)) code=code.slice(prefix.length);
+        else {warnings.push('Anotação de código não reconhecido: '+rawCode+'. Preservada no backup integral.');continue;}
+      }
+      notes.push({sourceKey,code,note:text});
+    }
+  }
+  if(!validKeys&&!sessions.length&&!notes.length)throw Error('Nenhum registro reconhecido de treino encontrado nesse backup.');
+  if(!sessions.length)throw Error('Não encontrei sessões de treino para importar.');
+  for(const s of sessions){
+    if(!isObject(s.legacy_original))throw Error('Registro de sessão inválido.');
+  }
+  return {versions:[...versions.keys()],sessions,exercises,notes,sets,warnings,original:data};
+}
+async function check(result, context) {
+  const {error,data}=await result;
+  if(error)throw Error(context+': '+error.message);
+  return data;
+}
+function batches(a,n=40){const b=[];for(let i=0;i<a.length;i+=n)b.push(a.slice(i,i+n));return b;}
+async function selectAll(table,fields,column,vals){
+  if(!vals.length)return [];
+  const all=[];
+  for(const chunk of batches([...new Set(vals)],35)){
+    const rows=await check(client.from(table).select(fields).eq('user_id',signedInUser.id).in(column,chunk),`Consulta ${table}`);
+    all.push(...(rows||[]));
+  }
+  return all;
+}
+async function insertMissing(table,items,conflict) {
+  for(const group of batches(items,30))await check(client.from(table).upsert(group,{onConflict:conflict,ignoreDuplicates:true}),`Inclusão ${table}`);
+}
+async function findUser(){
+  const {data,error}=await client.auth.getUser();
+  if(error)throw Error(error.message);
+  if(!data?.user)throw Error('Acesse sua conta primeiro em conta.html.');
+  return data.user;
+}
+async function countBackups(){
+  const {count,error}=await client.from('ond_backups').select('id',{count:'exact',head:true}).eq('user_id',signedInUser.id);
+  if(error)throw Error(error.message);
+  return count ?? 0;
+}
+async function sha256Text(content){
+  if(!globalThis.crypto?.subtle)throw Error('Este navegador não permite calcular SHA-256; use o endereço HTTPS do GitHub Pages.');
+  const data=new TextEncoder().encode(content);
+  const digest=await crypto.subtle.digest('SHA-256',data);
+  return Array.from(new Uint8Array(digest)).map(b=>b.toString(16).padStart(2,'0')).join('');
+}
+async function migrateBackup(file,parsed){
+  const user=await findUser();
+  if(user.id!==signedInUser.id)throw Error('A conta mudou durante a importação. Faça login novamente.');
+  const sha=await sha256Text(file.rawText);
+  say('1/6 · Salvando primeiro a cópia original do JSON na nuvem…');
+  await check(client.from('ond_backups').upsert({user_id:user.id,sha256:sha,source_format:'ondulatoria-local-backup-v1',exported_at:parsed.original.exportedAt||null,original_backup:parsed.original},
+  {onConflict:'user_id,sha256',ignoreDuplicates:true}), 'Backup integral');
+  const checkCopy=await check(client.from('ond_backups').select('id,sha256').eq('user_id',user.id).eq('sha256',sha).limit(1),'Conferência do backup');
+  if(checkCopy?.length!==1)throw Error('Backup não confirmado. Conversão interrompida.');
+  say('✓ Backup original confirmado no Supabase.');
+  say('2/6 · Cadastrando versões de planejamentos sem alterar as anteriores…');
+  const planRows=parsed.versions.map(k=>({
+    user_id:user.id,source_key:k,title:PLAN_DETAILS[k].title,valid_from:PLAN_DETAILS[k].valid_from,valid_until:PLAN_DETAILS[k].valid_until,archived:PLAN_DETAILS[k].archived,prescription:PLAN_DETAILS[k].prescription
+  }));
+  await insertMissing('ond_plans',planRows,'user_id,source_key');
+  const gotPlans=await selectAll('ond_plans','id,source_key','source_key',parsed.versions);
+  const planId=new Map(gotPlans.map(x=>[x.source_key,x.id]));
+  if(parsed.versions.some(k=>!planId.has(k)))throw Error('Não consegui confirmar todos os planejamentos.');
+  say('3/6 · Importando '+parsed.sessions.length+' sessões sem sobrescrever sessões existentes…');
+  const sessionRows=parsed.sessions.map(s=>({user_id:user.id,plan_id:planId.get(s.sourceKey),client_session_id:s.id,workout_code:s.workout,session_date:s.date,status:s.status,started_at:s.started_at,ended_at:s.ended_at,active_seconds:s.active_seconds,duration_is_verified:s.duration_is_verified,legacy_original:s.legacy_original}));
+  await insertMissing('ond_sessions',sessionRows,'user_id,client_session_id');
+  const gotSessions=await selectAll('ond_sessions','id,client_session_id','client_session_id',parsed.sessions.map(s=>s.id));
+  const sessionId=new Map(gotSessions.map(x=>[x.client_session_id,x.id]));
+  if(parsed.sessions.some(s=>!sessionId.has(s.id)))throw Error('A nuvem não retornou todas as sessões. Os dados originais foram preservados.');
+  say('4/6 · Importando '+parsed.exercises.length+' exercícios e '+parsed.notes.length+' anotações…');
+  const exRows=parsed.exercises.map(e=>({user_id:user.id,session_id:sessionId.get(e.sessionId),exercise_code:e.code,exercise_name:e.name,display_order:e.display_order,done:e.done,completed_at:e.completed_at,legacy_load:e.legacy_load,legacy_sets:e.legacy_sets,legacy_reps:e.legacy_reps,personal_note:e.personal_note,legacy_original:e.legacy_original}));
+  await insertMissing('ond_exercises',exRows,'session_id,exercise_code');
+  const notesRows=parsed.notes.map(n=>({user_id:user.id,plan_id:planId.get(n.sourceKey),exercise_code:n.code,note:n.note}));
+  await insertMissing('ond_notes',notesRows,'user_id,plan_id,exercise_code');
+  const gotExercises=await selectAll('ond_exercises','id,session_id,exercise_code','session_id',gotSessions.map(x=>x.id));
+  const exerciseId=new Map(gotExercises.map(x=>[x.session_id+'::'+x.exercise_code,x.id]));
+  for(const e of parsed.exercises) if(!exerciseId.has(sessionId.get(e.sessionId)+'::'+e.code))throw Error('Faltam exercícios na conferência preliminar.');
+  say('5/6 · Importando '+parsed.sets.length+' séries individuais (quando presentes)…');
+  const setRows=parsed.sets.map(x=>({user_id:user.id,exercise_id:exerciseId.get(sessionId.get(x.exerciseId.split('::').slice(0,-1).join('::'))+'::'+x.exerciseId.split('::').slice(-1)[0]),set_number:x.set_number,load_kg:x.load_kg,repetitions:x.repetitions,done:x.done}));
+  if(setRows.some(x=>!x.exercise_id))throw Error('Uma série não pôde ser vinculada ao exercício; cópia original preservada.');
+  await insertMissing('ond_sets',setRows,'exercise_id,set_number');
+  say('6/6 · Conferindo se os registros do arquivo estão no banco…');
+  const readSessions=await selectAll('ond_sessions','id,client_session_id','client_session_id',parsed.sessions.map(x=>x.id));
+  const readExercises=await selectAll('ond_exercises','id,session_id,exercise_code','session_id',readSessions.map(x=>x.id));
+  const readNotes=await selectAll('ond_notes','plan_id,exercise_code','plan_id',gotPlans.map(x=>x.id));
+  const readSets=await selectAll('ond_sets','exercise_id,set_number','exercise_id',readExercises.map(x=>x.id));
+  const sessionKeys=new Set(readSessions.map(x=>x.client_session_id));
+  const exKeys=new Set(readExercises.map(x=>x.session_id+'::'+x.exercise_code));
+  const noteKeys=new Set(readNotes.map(x=>x.plan_id+'::'+x.exercise_code));
+  const setKeys=new Set(readSets.map(x=>x.exercise_id+'::'+x.set_number));
+  const sessionsOK=parsed.sessions.every(x=>sessionKeys.has(x.id));
+  const exercisesOK=parsed.exercises.every(x=>exKeys.has(sessionId.get(x.sessionId)+'::'+x.code));
+  const notesOK=parsed.notes.every(x=>noteKeys.has(planId.get(x.sourceKey)+'::'+x.code));
+  const setsOK=parsed.sets.every(x=>{
+     const sid=x.exerciseId.split('::').slice(0,-1).join('::');const code=x.exerciseId.split('::').slice(-1)[0];
+     return setKeys.has(exerciseId.get(sessionId.get(sid)+'::'+code)+'::'+x.set_number);
+  });
+  return {sha,counts:{sessions:parsed.sessions.length,exercises:parsed.exercises.length,notes:parsed.notes.length,sets:parsed.sets.length},verified:sessionsOK&&exercisesOK&&notesOK&&setsOK,components:{sessionsOK,exercisesOK,notesOK,setsOK}};
+}
+function summary(preview) {
+  const perVersion=preview.versions.map(k=>{
+    const s=preview.sessions.filter(x=>x.sourceKey===k).length;
+    const n=preview.notes.filter(x=>x.sourceKey===k).length;
+    return `${PLAN_DETAILS[k].title}: ${s} sessões e ${n} anotações`;
+  });
+  get('preview').classList.remove('hidden');
+  get('summary').textContent = `${preview.sessions.length} sessões · ${preview.exercises.length} exercícios · ${preview.notes.length} anotações · ${preview.sets.length} séries individuais`;
+  get('versionList').textContent=perVersion.join('\n');
+  const v13=preview.sessions.filter(x=>x.sourceKey==='ondulatoria-v13').length;
+  const v14=preview.sessions.filter(x=>x.sourceKey==='ondulatoria-v14-planejamento02').length;
+  if(v13!==16||v14!==31)get('alert').textContent='Este arquivo tem uma quantidade diferente do backup de referência (16 + 31 sessões). Isso pode ser normal se você tiver feito novos registros, mas confira o arquivo antes de continuar.';
+  else get('alert').textContent='Conferência com o backup anterior: 16 + 31 = 47 sessões históricas encontradas.';
+  if(preview.warnings.length)get('alert').textContent+=' Atenção: '+preview.warnings.length+' valores de séries precisarão de revisão. O JSON original será preservado.';
+  get('importBtn').disabled = !get('confirm').checked||!signedInUser;
+}
+function initUI(){
+  if(!window.supabase?.createClient){showStatus('Erro: biblioteca do Supabase não carregou.','error');return;}
+  client=window.supabase.createClient(PROJECT_URL,PUBLISHABLE_KEY,{auth:{persistSession:true,autoRefreshToken:true,detectSessionInUrl:true,flowType:'implicit'}});
+  const refresh=async()=>{
+    try{
+      signedInUser=await findUser();
+      get('account').textContent=signedInUser.email||'Autenticada';
+      const b=await countBackups();
+      get('backupsCount').textContent=String(b);
+      showStatus('Conectada. Escolha o backup JSON mais recente.','ok');
+    }catch(e){signedInUser=null;get('account').textContent='Não conectada';showStatus('Faça login primeiro em conta.html (no mesmo navegador).','warning');}
+    get('importBtn').disabled=!selected||!signedInUser||!get('confirm').checked;
+  };
+  get('refreshBtn').addEventListener('click',refresh);
+  get('jsonFile').addEventListener('change',async()=>{
+    selected=null;get('preview').classList.add('hidden');get('importBtn').disabled=true;
+    const file=get('jsonFile').files?.[0];if(!file)return;
+    if(file.size>MAX_FILE_BYTES){showStatus('Arquivo acima de 12 MB. Não foi enviado.','error');return;}
+    try{
+      const rawText=await file.text();
+      const json=JSON.parse(rawText);const parsed=parseBackup(json);
+      selected={name:file.name,rawText,parsed};summary(parsed);
+      showStatus('Arquivo conferido localmente. Nenhum dado foi enviado ainda.','ok');
+    }catch(e){showStatus('Não consegui conferir este arquivo: '+e.message,'error');}
+  });
+  get('confirm').addEventListener('change',()=>{get('importBtn').disabled=!selected||!signedInUser||!get('confirm').checked;});
+  get('importBtn').addEventListener('click',async()=>{
+    if(!selected||!signedInUser||!get('confirm').checked||migrating)return;
+    if(!confirm(`Importar ${selected.parsed.sessions.length} sessões para a conta ${signedInUser.email||'atual'}? O arquivo original será salvo primeiro. Esta operação não apaga nem substitui os treinos do celular.`))return;
+    migrating=true;get('importBtn').disabled=true;get('refreshBtn').disabled=true;get('jsonFile').disabled=true;lines.length=0;
+    try{
+      say('Iniciando migração protegida…');
+      const result=await migrateBackup(selected,selected.parsed);
+      if(!result.verified)throw Error('Conferência incompleta. Reabra esta página e repita a importação do MESMO arquivo. Nenhum registro anterior será substituído. '+JSON.stringify(result.components));
+      showStatus('✓ Conferência concluída: registros do arquivo encontrados na nuvem.','ok');
+      say(`✓ FINALIZADO! ${result.counts.sessions} sessões, ${result.counts.exercises} exercícios, ${result.counts.notes} anotações e ${result.counts.sets} séries conferidos.`);
+      say('Seu Ondulatória instalado continua guardando os dados no aparelho. A sincronização automática AINDA não está ativa.');
+      get('completed').classList.remove('hidden');
+      get('completed').textContent=`Migração confirmada: ${result.counts.sessions} sessões, ${result.counts.exercises} exercícios, ${result.counts.notes} anotações e ${result.counts.sets} séries. Backup integral salvo com hash SHA-256: ${result.sha.slice(0,12)}…`;
+    }catch(e){showStatus('Migração interrompida: '+e.message,'error');say('✕ '+e.message,'error');say('Os dados no iPhone NÃO foram apagados. A cópia original pode já estar salva na nuvem; repetir o mesmo arquivo não duplica registros.');}
+    finally{migrating=false;get('refreshBtn').disabled=false;get('jsonFile').disabled=false;get('importBtn').disabled=!selected||!signedInUser||!get('confirm').checked;try{get('backupsCount').textContent=String(await countBackups());}catch(_){}}
+  });
+  refresh();
+}
+if(typeof document!=='undefined')initUI();
+
+</script>
+</body>
+</html>
