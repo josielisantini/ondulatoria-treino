@@ -1,0 +1,112 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="theme-color" content="#D3C7AD" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+  <meta name="apple-mobile-web-app-title" content="Ondulatória" />
+  <meta name="description" content="Controle pessoal de treino ondulatório." />
+  <link rel="manifest" href="manifest.webmanifest?v=14" />
+  <link rel="apple-touch-icon" href="apple-touch-icon.png?v=14" />
+  <link rel="stylesheet" href="styles.css?v=14" />
+  <title>Ondulatória 02</title>
+</head>
+<body>
+  <div class="app-shell">
+    <header class="app-header">
+      <div class="brand-block">
+        <div class="brand-icon" aria-hidden="true"></div>
+        <div>
+          <p class="eyebrow">SEU APP DE TREINO</p>
+          <h1>Ondulatória</h1>
+        </div>
+      </div>
+      <button class="icon-button" id="backupBtn" title="Exportar histórico" aria-label="Exportar histórico" style="width:auto; min-width:44px; padding:0 12px; font-size:13px; white-space:nowrap">↓ Backup</button>
+    </header>
+
+    <main id="app" aria-live="polite"></main>
+
+    <nav class="bottom-nav" aria-label="Navegação principal">
+      <button data-nav="home" class="nav-item active"><span>⌂</span><small>Hoje</small></button>
+      <button data-nav="workouts" class="nav-item"><span>▤</span><small>Treinos</small></button>
+      <button data-nav="pending" class="nav-item"><span>◷</span><small>Pendências</small></button>
+      <button data-nav="guide" class="nav-item"><span>◎</span><small>Guia</small></button>
+    </nav>
+  </div>
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+  <script src="app.js?v=14"></script>
+  <script>
+    // Backup não destrutivo: lê todas as chaves históricas e NÃO as altera.
+    (function () {
+      const button = document.getElementById('backupBtn');
+      if (!button) return;
+
+      function fileFallback(file) {
+        const url = URL.createObjectURL(file);
+        const link = document.createElement('a');
+        link.href = url;
+        link.download = file.name;
+        document.body.appendChild(link);
+        link.click();
+        link.remove();
+        setTimeout(() => URL.revokeObjectURL(url), 60000);
+        alert('O backup foi preparado para download. Confira se o arquivo JSON foi salvo no app Arquivos ou no seu computador.');
+      }
+
+      button.addEventListener('click', async function () {
+        let keys, entries;
+        try {
+          keys = Object.keys(localStorage)
+            .filter(k => k === 'ondulatoria' || k.startsWith('ondulatoria-'))
+            .sort();
+          entries = keys.map(key => ({ key, raw: localStorage.getItem(key) }));
+        } catch (error) {
+          alert('Não foi possível acessar os dados locais. Use o ícone instalado do Ondulatória no iPhone.');
+          return;
+        }
+
+        if (!keys.length) {
+          alert('Nenhum histórico do Ondulatória encontrado NESTE armazenamento. Isso não confirma que os dados tenham sido apagados: abra o app pelo mesmo ícone em que você registrava os treinos.');
+          return;
+        }
+
+        let sessions = 0;
+        entries.forEach(({raw}) => {
+          try {
+            const parsed = JSON.parse(raw);
+            if (parsed && typeof parsed.sessions === 'object' && parsed.sessions !== null) {
+              sessions += Object.keys(parsed.sessions).length;
+            }
+          } catch (_) {}
+        });
+
+        const backup = {
+          format: 'ondulatoria-local-backup-v1',
+          exportedAt: new Date().toISOString(),
+          sourceOrigin: location.origin,
+          note: 'Cópia integral dos dados armazenados sob as chaves Ondulatória. Não substitui os dados originais.',
+          keysFound: keys.length,
+          sessionsFoundAcrossKeys: sessions,
+          entries
+        };
+
+        const date = new Date();
+        const stamp = [date.getFullYear(), String(date.getMonth() + 1).padStart(2, '0'), String(date.getDate()).padStart(2, '0')].join('-');
+        const file = new File([JSON.stringify(backup, null, 2)], 'backup-ondulatoria-' + stamp + '.json', { type: 'application/json' });
+
+        if (navigator.share && navigator.canShare && navigator.canShare({ files: [file] })) {
+          try {
+            await navigator.share({ files: [file], title: 'Backup do Ondulatória', text: 'Salve este arquivo no app Arquivos ou no Google Drive.' });
+            return;
+          } catch (error) {
+            if (error && error.name === 'AbortError') return;
+          }
+        }
+        fileFallback(file);
+      });
+    })();
+  </script>
+</body>
+</html>
