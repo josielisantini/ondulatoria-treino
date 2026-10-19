@@ -1036,3 +1036,29 @@ h1 {
     font-size: 19px;
   }
 }
+
+/* V15 — séries por exercício e histórico; mantém fundo areia claro. */
+.bottom-nav{grid-template-columns:repeat(5,minmax(0,1fr));gap:3px;}
+.nav-item{padding:9px 2px 7px;font-size:10px;min-width:0;}
+.nav-item small{font-size:10px;}
+.series-head{display:flex;justify-content:space-between;gap:8px;margin:17px 0 10px;color:var(--azul);font-size:13px;}
+.series-head span{color:var(--muted);font-weight:700;}
+.series-row{display:grid;grid-template-columns:32px minmax(0,1fr) minmax(0,1fr) 42px;align-items:center;gap:7px;margin:8px 0;}
+.series-labels{font-size:10px;font-weight:850;letter-spacing:.2px;color:var(--muted);}
+.series-row strong{font-size:14px;color:var(--azul);text-align:center;}
+.series-row input{width:100%;min-width:0;padding:11px 8px;border-radius:12px;border:1px solid var(--linha);background:#fff;color:var(--azul);font-size:16px;}
+.series-row input:focus{outline:2px solid rgba(117,68,55,.33);}
+.series-check{display:grid;place-items:center;min-height:42px;border-radius:12px;border:1px solid var(--linha);color:var(--terra);background:#f1e5d5;font-size:23px;}
+.series-check.checked{background:var(--verde);border-color:var(--verde);color:#fff;}
+.series-check:disabled{opacity:.68;}
+.last-load{margin-top:14px;padding:12px;border-radius:13px;background:#f0e7d9;color:var(--azul);font-size:12px;line-height:1.45;}
+.history-record{width:100%;display:flex;justify-content:space-between;align-items:center;gap:10px;padding:15px;text-align:left;}
+.history-record strong{font-size:14px;color:var(--azul);}
+.history-record p{font-size:12px;margin:4px 0 0;color:var(--muted);}
+.history-record>span{white-space:nowrap;font-size:12px;color:var(--terra);font-weight:800;}
+.history-series{font-size:12px;color:var(--texto-suave);margin-top:10px;}
+.history-series p{margin:4px 0;}
+.hero .pill{background:#ebdec9;}
+.badge.periodic.type-03{background:#f1e3bb;color:#735827;}
+.badge.periodic.type-04{background:#dce8d2;color:#54653e;}
+@media(max-width:380px){#app{padding-left:11px;padding-right:11px}.series-row{gap:5px;grid-template-columns:28px minmax(0,1fr) minmax(0,1fr) 40px}.nav-item small{font-size:9px}}

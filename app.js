@@ -1,698 +1,163 @@
-const STORAGE_KEY = 'ondulatoria-v14-planejamento02';
-const plan = {
-  name: 'Ondulatória 02',
-  goal: 'Correção postural e definição',
-  validFrom: '2026-08-17',
-  validUntil: '2026-10-12',
-  periodization: {
-  "01": {
-    "reps": "5 a 8",
-    "rest": "90 s a 120 s",
-    "css": "type-01"
-  },
-  "02": {
-    "reps": "8 a 12",
-    "rest": "60 s a 90 s",
-    "css": "type-02"
-  },
-  "03": {
-    "reps": "12 a 15",
-    "rest": "45 s a 60 s",
-    "css": "type-03"
-  },
-  "04": {
-    "reps": "15 a 20",
-    "rest": "30 s a 40 s",
-    "css": "type-04"
-  }
-},
-  cycle: {
-    start: '2026-08-17',
-    // Planejamento 02: ciclo semanal conforme tabela do PDF.
-    // 17/08 e 24/08: T02; 31/08 e 07/09: T01; 14/09: T03; 21/09 e 28/09: T02; 05/10 e 12/10: T01.
-    types: ['02', '02', '01', '01', '03', '02', '02', '01', '01']
-  },
-  workouts: {
-  "A": [
-    [
-      "A1",
-      "Dead bug",
-      "3 x 12",
-      "https://www.youtube.com/shorts/HrxOWhPdsOY",
-      "Fazer com cadência: 3 s na subida e 3 s na descida."
-    ],
-    [
-      "A2",
-      "Abd. suspenso",
-      "3 x 10",
-      "https://www.youtube.com/shorts/Z4h2aIJGzFA",
-      ""
-    ],
-    [
-      "A3",
-      "Remada descendente na máquina",
-      "3 x periodização",
-      "https://www.youtube.com/watch?v=V-NEexFEEAg&list=PL6KmC8RDDr9_mUmUHRmqlYfeWOvdx5UQj&index=118",
-      "Sequência de ativações."
-    ],
-    [
-      "A4",
-      "Remada sentada · pegada pronada",
-      "3 x periodização",
-      "https://www.youtube.com/watch?v=qw4FCBAA8DE&list=PL6KmC8RDDr9_mUmUHRmqlYfeWOvdx5UQj&index=31",
-      "Sequência de ativações."
-    ],
-    [
-      "A5",
-      "Remada articulada neutra",
-      "3 x periodização",
-      "https://www.youtube.com/shorts/lwLr-OF109s",
-      "Sequência de ativações."
-    ],
-    [
-      "A6",
-      "Crucifixo inverso na máquina (voador)",
-      "3 x 10-12",
-      "https://www.youtube.com/watch?v=-20kSQg-rfo&list=PL6KmC8RDDr9_mUmUHRmqlYfeWOvdx5UQj&index=66",
-      "Manter máxima retração escapular."
-    ],
-    [
-      "A7",
-      "Desenvolvimento em pé",
-      "3 x periodização",
-      "https://www.youtube.com/shorts/5k7m-FaMiPQ",
-      "Manter máxima força no abdômen."
-    ]
-  ],
-  "B": [
-    [
-      "B1",
-      "Agachamento búlgaro com halter",
-      "3 x periodização",
-      "https://www.youtube.com/watch?v=Cp26sZcI03g&list=PL6KmC8RDDr9_mUmUHRmqlYfeWOvdx5UQj&index=95",
-      "Usar um halter em cada mão."
-    ],
-    [
-      "B2",
-      "Cadeira abdutora extensora (abdutora articulada)",
-      "3 x periodização",
-      "https://www.youtube.com/watch?v=msVXwFhjBxA&list=PL6KmC8RDDr9_mUmUHRmqlYfeWOvdx5UQj&index=82",
-      ""
-    ],
-    [
-      "B3",
-      "Hack machine",
-      "3 x periodização",
-      "https://www.youtube.com/watch?v=-m7kAB6XPk4&list=PL6KmC8RDDr9_mUmUHRmqlYfeWOvdx5UQj&index=19",
-      ""
-    ],
-    [
-      "B4",
-      "Mesa flexora",
-      "3 x periodização",
-      "https://www.youtube.com/watch?v=wmx3aCFbAsg&list=PL6KmC8RDDr9_mUmUHRmqlYfeWOvdx5UQj&index=24",
-      ""
-    ],
-    [
-      "B5",
-      "Cadeira flexora",
-      "3 x periodização",
-      "https://www.youtube.com/watch?v=5siJT_hYk-8&list=PL6KmC8RDDr9_mUmUHRmqlYfeWOvdx5UQj&index=12",
-      ""
-    ],
-    [
-      "B6",
-      "Panturrilha sentada na máquina",
-      "3 x 12-15",
-      "https://www.youtube.com/watch?v=Xc8k27rgbTU&list=PL6KmC8RDDr9_mUmUHRmqlYfeWOvdx5UQj&index=92",
-      ""
-    ]
-  ],
-  "C": [
-    [
-      "C1",
-      "Abd. suspenso",
-      "3 x 12",
-      "https://www.youtube.com/shorts/Z4h2aIJGzFA",
-      ""
-    ],
-    [
-      "C2",
-      "Puxada média supinada",
-      "3 x periodização",
-      "https://www.youtube.com/watch?v=agILdcvZNGU&list=PL6KmC8RDDr9_mUmUHRmqlYfeWOvdx5UQj&index=62",
-      ""
-    ],
-    [
-      "C3",
-      "Supino reto halteres",
-      "3 x periodização",
-      "https://www.youtube.com/shorts/63WPDh641tQ",
-      ""
-    ],
-    [
-      "C4",
-      "Remada curvada · pegada pronada",
-      "3 x periodização",
-      "https://www.youtube.com/watch?v=HunrZLlYfoc&list=PL6KmC8RDDr9_mUmUHRmqlYfeWOvdx5UQj&index=44",
-      "Manter máxima retração escapular."
-    ],
-    [
-      "C5",
-      "Bíceps bilateral halter",
-      "3 x 12-15",
-      "https://www.youtube.com/watch?v=m8UflzWx3LI&list=PL6KmC8RDDr9_mUmUHRmqlYfeWOvdx5UQj&index=71",
-      "Manter máxima retração escapular."
-    ],
-    [
-      "C6",
-      "Tríceps coice na polia",
-      "3 x 12",
-      "https://www.youtube.com/watch?v=H43B22KbOB8&list=PL6KmC8RDDr9_mUmUHRmqlYfeWOvdx5UQj&index=104",
-      "Manter máxima retração escapular."
-    ]
-  ],
-  "D": [
-    [
-      "D1",
-      "Elevação pélvica livre",
-      "3 x periodização",
-      "https://www.youtube.com/watch?v=1QJiPvRNt_M&list=PL6KmC8RDDr9_mUmUHRmqlYfeWOvdx5UQj&index=14",
-      ""
-    ],
-    [
-      "D2",
-      "Cadeira abdutora encostada",
-      "3 x periodização",
-      "https://www.youtube.com/watch?v=lX-oM3XV1zo&list=PL6KmC8RDDr9_mUmUHRmqlYfeWOvdx5UQj&index=9",
-      ""
-    ],
-    [
-      "D3",
-      "Levantamento terra sumô",
-      "3 x periodização",
-      "https://www.youtube.com/watch?v=zZrQTLTeq24&list=PL6KmC8RDDr9_mUmUHRmqlYfeWOvdx5UQj&index=57",
-      ""
-    ],
-    [
-      "D4",
-      "Glúteo na polia com a perna estendida",
-      "3 x 10-12",
-      "https://www.youtube.com/watch?v=X4E_1uPxXdw&list=PL6KmC8RDDr9_mUmUHRmqlYfeWOvdx5UQj&index=74",
-      ""
-    ],
-    [
-      "D5",
-      "Cadeira extensora unilateral",
-      "3 x periodização",
-      "",
-      ""
-    ],
-    [
-      "D6",
-      "Panturrilha 180°",
-      "3 x 15",
-      "https://www.youtube.com/shorts/N3FYMTnRAQM",
-      ""
-    ]
-  ]
-},
-  guides: [
-  [
-    "Pés",
-    "Cuidar com o afastamento demasiado dos pés, assim como a abdução exagerada (ponta do pé para fora).",
-    "◒"
-  ],
-  [
-    "Joelhos",
-    "Manter os joelhos alinhados com as pontas dos pés, evitando rotação interna ou externa.",
-    "⌁"
-  ],
-  [
-    "Quadril/Pelve",
-    "Não exagerar na amplitude e evitar retroversão pélvica ou perda da ativação do bracing.",
-    "⌁"
-  ],
-  [
-    "Coluna",
-    "Manter as curvaturas da coluna preservadas, sem aumentar lordoses ou cifose, com bracing ativado.",
-    "↕"
-  ],
-  [
-    "Ombros",
-    "Manter o ombro em rotação externa e cuidar para que as escápulas acompanhem o movimento.",
-    "◌"
-  ],
-  [
-    "Bíceps/Tríceps",
-    "Manter escápulas em neutro e bracing ativado; durante a execução, apenas o cotovelo deve se mover.",
-    "↔"
-  ],
-  [
-    "Costas/Peitoral",
-    "Nas puxadas, realizar abaixamento e retração das escápulas antes de flexionar os cotovelos. Nas remadas, retrair antes de puxar. No peitoral, manter escápulas estáticas em neutro ou leve retração.",
-    "⇄"
-  ],
-  [
-    "Panturrilhas",
-    "Manter o pé em neutro, evitando que caia para dentro; direcionar a força para a borda lateral do pé.",
-    "⌄"
-  ],
-  [
-    "Abdominais",
-    "Realizar máxima expiração na fase concêntrica; não apoiar a cervical no chão e focar na qualidade do movimento.",
-    "◍"
-  ],
-  [
-    "Cardio",
-    "60 minutos semanais, mantendo média de 120 bpm; não deixar o cardio fácil, deve ficar ofegante.",
-    "♡"
-  ],
-  [
-    "Mobilidade",
-    "15 a 30 segundos por alongamento antes de todos os treinos.",
-    "◎"
-  ]
-]
-};
+/* Ondulatória V15 — planejamento 03 e história local, sem serviços externos.
+   CHAVES LEGADAS NUNCA SÃO ESCRITAS OU APAGADAS.
+   Nenhum dado pessoal é embutido neste código público. */
+'use strict';
+const STORAGE_KEY='ondulatoria-v15-sessoes';
+const RECOVERY_KEY='ondulatoria-v15-recuperacao';
+const LEGACY_KEYS=['ondulatoria-v13','ondulatoria-v14-planejamento02'];
+const plan={"id":"2026-10-19-ondulatoria03","name":"Ondulatória 03","goal":"Correção postural e definição","validFrom":"2026-10-19","validUntil":"2026-12-12","periodization":{"01":{"reps":"5 a 8","rest":"90 a 120 s","css":"type-01"},"02":{"reps":"8 a 12","rest":"60 a 90 s","css":"type-02"},"03":{"reps":"12 a 15","rest":"45 a 60 s","css":"type-03"},"04":{"reps":"15 a 20","rest":"30 a 40 s","css":"type-04"}},"weeks":[["2026-10-19","02"],["2026-10-26","02"],["2026-11-02","03"],["2026-11-09","01"],["2026-11-16","02"],["2026-11-23","02"],["2026-11-30","03"],["2026-12-07","01"]],"workouts":{"A":[["A1","Dead bug","3 x 12","https://www.youtube.com/shorts/HrxOWhPdsOY","Fazer com cadência: 3 s na subida e 3 s na descida."],["A2","Abd. suspenso","3 x 10","https://www.youtube.com/shorts/Z4h2aIJGzFA",""],["A3","Remada sentada na polia alta · pegada triângulo","3 x periodização","https://www.youtube.com/watch?v=7GKgbFsllM4&list=PL6KmC8RDDr9_mUmUHRmqlYfeWOvdx5UQj&index=29","Sequência de ativações."],["A4","Remada sentada · pegada pronada","3 x periodização","https://www.youtube.com/watch?v=qw4FCBAA8DE&list=PL6KmC8RDDr9_mUmUHRmqlYfeWOvdx5UQj&index=31","Sequência de ativações: primeiro retrair as escápulas, depois puxar o peso."],["A5","Puxada frontal · pegada pronada","3 x periodização","https://www.youtube.com/watch?v=YxkeE9viI_M&list=PL6KmC8RDDr9_mUmUHRmqlYfeWOvdx5UQj&index=61",""],["A6","Crucifixo inverso com halter","3 x periodização","https://www.youtube.com/watch?v=HRrfLCtbBdw&list=PL6KmC8RDDr9_mUmUHRmqlYfeWOvdx5UQj&index=67","Manter máxima retração escapular."],["A7","Bíceps martelo com halter","3 x 10","https://www.youtube.com/watch?v=TNmVy-UwHlE&list=PL6KmC8RDDr9_mUmUHRmqlYfeWOvdx5UQj&index=70","Manter máxima retração escapular."],["A8","Tríceps coice na polia","3 x 12","https://www.youtube.com/watch?v=H43B22KbOB8&list=PL6KmC8RDDr9_mUmUHRmqlYfeWOvdx5UQj&index=104","Manter máxima retração escapular."]],"B":[["B1","Cadeira abdutora inclinada à frente","4 x 10","https://www.youtube.com/watch?v=Io2AiAvAdmY&list=PL6KmC8RDDr9_mUmUHRmqlYfeWOvdx5UQj&index=10",""],["B2","Stiff com barra","3 x periodização","https://www.youtube.com/watch?v=NE4JojszA98&list=PL6KmC8RDDr9_mUmUHRmqlYfeWOvdx5UQj&index=55",""],["B3","Levantamento terra sumô","3 x periodização","https://www.youtube.com/watch?v=zZrQTLTeq24&list=PL6KmC8RDDr9_mUmUHRmqlYfeWOvdx5UQj&index=57",""],["B4","Mesa flexora","3 x periodização","https://www.youtube.com/watch?v=wmx3aCFbAsg&list=PL6KmC8RDDr9_mUmUHRmqlYfeWOvdx5UQj&index=24",""],["B5","Leg 180°","3 x periodização","https://www.youtube.com/watch?v=pfJEaQRhRC4&list=PL6KmC8RDDr9_mUmUHRmqlYfeWOvdx5UQj&index=21",""],["B6","Panturrilha 180°","3 x 15","https://www.youtube.com/shorts/N3FYMTnRAQM",""]],"C":[["C1","Dead bug","3 x 12","https://www.youtube.com/shorts/HrxOWhPdsOY",""],["C2","Elevação frontal em Y","3 x 8-12","https://www.youtube.com/watch?v=f3lRic54uSE&list=PL6KmC8RDDr9_mUmUHRmqlYfeWOvdx5UQj&index=94",""],["C3","Puxada média supinada","3 x periodização","https://www.youtube.com/watch?v=agILdcvZNGU&list=PL6KmC8RDDr9_mUmUHRmqlYfeWOvdx5UQj&index=62","Sequência de ativações."],["C4","Remada descendente na máquina","3 x periodização","https://www.youtube.com/watch?v=V-NEexFEEAg&list=PL6KmC8RDDr9_mUmUHRmqlYfeWOvdx5UQj&index=118",""],["C5","Remada curvada com halteres","3 x periodização","https://www.youtube.com/shorts/q3_TOqsX87s",""],["C6","Elevação lateral com halter","3 x periodização","https://www.youtube.com/watch?v=kgPeE09m5D8&list=PL6KmC8RDDr9_mUmUHRmqlYfeWOvdx5UQj&index=36",""],["C7","Tríceps testa com halter","3 x 12","https://www.youtube.com/watch?v=ajWYpj-Hzes&list=PL6KmC8RDDr9_mUmUHRmqlYfeWOvdx5UQj&index=88",""]],"D":[["D1","Afundo retrocesso no Smith","3 x 10-12","https://www.youtube.com/watch?v=eTtrP-aRAAo&list=PL6KmC8RDDr9_mUmUHRmqlYfeWOvdx5UQj&index=56",""],["D2","Elevação pélvica na máquina","3 x 12","https://www.youtube.com/watch?v=Nn4IVlx4bhk&list=PL6KmC8RDDr9_mUmUHRmqlYfeWOvdx5UQj&index=16",""],["D3","Cadeira abdutora 45°","4 x periodização","https://www.youtube.com/watch?v=5_vmufSHF0w&list=PL6KmC8RDDr9_mUmUHRmqlYfeWOvdx5UQj&index=8",""],["D4","Abdução lateral na polia","3 x periodização","https://www.youtube.com/shorts/Wuari88ArMY",""],["D5","Leg 45°","3 x periodização","https://www.youtube.com/watch?v=sIXq8Qg__Xo&list=PL6KmC8RDDr9_mUmUHRmqlYfeWOvdx5UQj&index=20",""],["D6","Agachamento sumô","3 x periodização","https://www.youtube.com/watch?v=w6Z4iGt0GXM&list=PL6KmC8RDDr9_mUmUHRmqlYfeWOvdx5UQj&index=116",""]]},"guides":[["Pés","Evitar afastamento e abdução exagerados dos pés.","◒"],["Joelhos","Manter joelhos alinhados às pontas dos pés.","⌁"],["Quadril e pelve","Evitar retroversão pélvica e preservar o bracing.","⌁"],["Coluna","Preservar curvaturas naturais e manter bracing.","↕"],["Ombros","Cuidar da rotação externa e acompanhar o movimento das escápulas.","◌"],["Costas e peitoral","Nas puxadas e remadas, ativar as escápulas antes de flexionar o cotovelo; para peitoral, mantê-las estáveis quando orientado.","⇄"],["Braços","Manter ombro estabilizado e mover o cotovelo.","↔"],["Panturrilhas","Manter os pés neutros, direcionando a força também para a borda lateral.","⌄"],["Abdominais","Expirar na fase concêntrica e focar na qualidade do movimento.","◍"],["Cardio","30 a 60 minutos semanais de aeróbio moderado; a ficha recomenda média de 120 bpm.","♡"],["Mobilidade","15 a 30 segundos por alongamento antes de todos os treinos.","◎"]]};
+const legacyNames={"ondulatoria-v13":{"A":{"A1":"Dead bug","A2":"Abd. suspenso","A3":"Puxada frontal · pegada neutra","A4":"Remada sentada · pegada pronada","A5":"Crucifixo reto com halteres","A6":"Remada articulada neutra","A7":"Face pull","A8":"Francês no cabo"},"B":{"B1":"Cadeira abdutora inclinada à frente","B2":"Glúteo na polia com a perna estendida","B3":"Hack machine","B4":"Mesa flexora","B5":"Leg 180°","B6":"Panturrilha 180°"},"C":{"C1":"Abs. curto no banco declinado","C2":"Elevação frontal em Y","C3":"Elevação lateral na máquina","C4":"Elevação lateral com halter","C5":"Remada serrote","C6":"Bíceps Spider","C7":"Tríceps pulley com corda"},"D":{"D1":"Recuo alternado","D2":"Elevação pélvica unilateral","D3":"Agachamento livre","D4":"Stiff B-Stance (stiff unilateral)","D5":"Leg Press Angular"}},"ondulatoria-v14-planejamento02":{"A":{"A1":"Dead bug","A2":"Abd. suspenso","A3":"Remada descendente na máquina","A4":"Remada sentada · pegada pronada","A5":"Remada articulada neutra","A6":"Crucifixo inverso na máquina (voador)","A7":"Desenvolvimento em pé"},"B":{"B1":"Agachamento búlgaro com halter","B2":"Cadeira abdutora extensora (abdutora articulada)","B3":"Hack machine","B4":"Mesa flexora","B5":"Cadeira flexora","B6":"Panturrilha sentada na máquina"},"C":{"C1":"Abd. suspenso","C2":"Puxada média supinada","C3":"Supino reto halteres","C4":"Remada curvada · pegada pronada","C5":"Bíceps bilateral halter","C6":"Tríceps coice na polia"},"D":{"D1":"Elevação pélvica livre","D2":"Cadeira abdutora encostada","D3":"Levantamento terra sumô","D4":"Glúteo na polia com a perna estendida","D5":"Cadeira extensora unilateral","D6":"Panturrilha 180°"}}};
+const MAX_REASONABLE_DURATION_MS=4*60*60*1000;
+let state=loadNewState();
+let view={name:'home', workout:null, date:todayISO(), filter:'all', historyId:null};
+let timerHandle=null;
 
-let state = loadState();
-let view = { name: 'home', workout: null, date: todayISO(), pendingFilter: 'all' };
-let timerHandle = null;
-
-function defaultState() {
-  return { sessions: {}, personalNotes: {}, lastSelectedDate: todayISO() };
+function now(){return Date.now();}
+function todayISO(){let d=new Date();return `${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,'0')}-${String(d.getDate()).padStart(2,'0')}`;}
+function parseDate(s){const [y,m,d]=String(s).split('-').map(Number);return new Date(y,m-1,d,12);}
+function iso(d){return `${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,'0')}-${String(d.getDate()).padStart(2,'0')}`;}
+function plusDays(s,number){const d=parseDate(s);d.setDate(d.getDate()+number);return iso(d);}
+function dformat(s){if(!s)return '—';return parseDate(s).toLocaleDateString('pt-BR',{day:'2-digit',month:'2-digit',year:'numeric'});}
+function timeformat(ms){if(!Number.isFinite(ms))return '—';return new Date(ms).toLocaleTimeString('pt-BR',{hour:'2-digit',minute:'2-digit'});}
+function esc(x=''){return String(x??'').replace(/[&<>"']/g,x=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[x]));}
+function fmtMs(ms){const total=Math.max(0,Math.floor(ms/1000));return `${String(Math.floor(total/3600)).padStart(2,'0')}:${String(Math.floor(total%3600/60)).padStart(2,'0')}:${String(total%60).padStart(2,'0')}`;}
+function readJSON(key){try{return JSON.parse(localStorage.getItem(key)||'null')}catch{return null}}
+function defaultState(){return {schemaVersion:15,planId:plan.id,sessions:{},personalNotes:{}};}
+function loadNewState(){const o=readJSON(STORAGE_KEY);return (o && typeof o==='object')?{...defaultState(),...o,sessions:o.sessions||{},personalNotes:o.personalNotes||{}}:defaultState();}
+function save(){try{localStorage.setItem(STORAGE_KEY,JSON.stringify(state));return true}catch(e){alert('Não foi possível salvar este registro no aparelho. Exporte um backup antes de continuar.');return false}}
+function periodFor(s){if(s<plan.validFrom||s>plan.validUntil)return null;let j=-1;for(let i=0;i<plan.weeks.length;i++)if(s>=plan.weeks[i][0])j=i;else break;if(j<0)return null;const [starts,type]=plan.weeks[j];return {type,week:j+1,starts,ends:plusDays(starts,6),meta:plan.periodization[type]};}
+function periodic(rx){return rx.toLowerCase().includes('periodização');}
+function prescribed(rx,date){if(!periodic(rx))return rx;const p=periodFor(date);return p?rx.replace('periodização',p.meta.reps+' reps')+' · Tipo '+p.type:rx;}
+function expectedSets(rx){const m=/^\s*(\d+)\s*x/i.exec(rx);return m?Number(m[1]):3;}
+function sessionKey(date,w){return `${date}_${w}`;}
+function getSession(date,w,create=false){const k=sessionKey(date,w);if(!state.sessions[k]&&create){const started=now();state.sessions[k]={id:k,date,workout:w,planId:plan.id,status:'started',startedAt:started,runningSince:started,elapsedMs:0,endedAt:null,currentIndex:0,exercises:{}};}return state.sessions[k]||null;}
+function elapsed(s){return Math.max(0,Number(s.elapsedMs)||0)+(s.status==='started'&&s.runningSince?Math.max(0,now()-s.runningSince):0);}
+function pause(s){if(s.status==='started'&&s.runningSince){s.elapsedMs=elapsed(s);s.runningSince=null;}s.endedAt=now();}
+function continueSession(s){if(s.status==='partial'){s.status='started';s.runningSince=now();s.endedAt=null;}}
+function allLegacy(){const recovery=readJSON(RECOVERY_KEY)||{};const archiveEntries=(recovery.entries && typeof recovery.entries==='object')?recovery.entries:{};return LEGACY_KEYS.map(key=>{
+ const live=readJSON(key);const copy=archiveEntries[key];
+ const valid=obj=>obj&&typeof obj.sessions==='object'&&obj.sessions;
+ const data=(valid(copy)||valid(live))?{
+    sessions:{...(valid(copy)?copy.sessions:{}),...(valid(live)?live.sessions:{})},
+    personalNotes:{...(copy?.personalNotes||{}),...(live?.personalNotes||{})}
+ }:null;
+ return {key,data};
+});}
+function histories(){let rows=[];
+ for(const {key,data} of allLegacy())if(data){
+   for(const [sessKey,s] of Object.entries(data.sessions))if(s&&s.date){rows.push({id:'old:'+key+':'+sessKey,key,planId:key,planName:key==='ondulatoria-v13'?'Planejamento 01':'Planejamento 02',legacy:true,session:s,notes:data.personalNotes||{},names:legacyNames[key]||{}});}
+ }
+ for(const [k,s] of Object.entries(state.sessions))if(s&&s.date){rows.push({id:'new:'+k,key:STORAGE_KEY,planId:plan.id,planName:'Planejamento 03',legacy:false,session:s,notes:state.personalNotes,names:Object.fromEntries(Object.entries(plan.workouts).map(([w,exs])=>[w,Object.fromEntries(exs.map(x=>[x[0],x[1]]))]))});}
+ return rows.sort((a,b)=>b.session.date.localeCompare(a.session.date)||b.session.startedAt-a.session.startedAt);
 }
-function loadState() {
-  try { return { ...defaultState(), ...JSON.parse(localStorage.getItem(STORAGE_KEY) || '{}') }; }
-  catch { return defaultState(); }
+function pending(){const arr=[];for(const s of Object.values(state.sessions)){if(s.status==='completed')continue;const exs=plan.workouts[s.workout]||[];for(const ex of exs){if(!s.exercises?.[ex[0]]?.done)arr.push({session:s,ex});}}return arr;}
+function makeSets(s,code,rx){const existing=s.exercises[code]||{};if(!Array.isArray(existing.series)){existing.series=Array.from({length:expectedSets(rx)},()=>({load:'',reps:'',done:false}));s.exercises[code]=existing;}return existing.series;}
+function counted(s){return (plan.workouts[s.workout]||[]).filter(ex=>!!s.exercises?.[ex[0]]?.done).length;}
+function completed(){return histories().filter(x=>x.session.status==='completed');}
+function shortLastRecord(name,code){const norm=x=>String(x).normalize('NFD').replace(/[\u0300-\u036f]/g,'').toLowerCase().replace(/[^a-z0-9]+/g,' ').trim();const wanted=norm(name);const items=histories().filter(x=>x.session.status==='completed'&&x.session.exercises);
+ for(const h of items){for(const [id,record] of Object.entries(h.session.exercises)){
+ const oldname=(h.names[h.session.workout]||{})[id]||'';
+ if(norm(oldname)!==wanted)continue;
+ const a=record.series&&record.series.filter(z=>z.load||z.reps).map(z=>`${z.load||'—'} kg × ${z.reps||'—'}`).join(' · ');
+ const text=a||((record.load||record.reps)?`${record.load||'—'} kg · ${record.reps||'—'} reps (registro geral)`:'');
+ if(text)return {date:h.session.date,text};
+ }}return null;}
+function toast(m){const t=document.getElementById('toast');if(!t)return;t.textContent=m;t.classList.add('show');clearTimeout(toast.timer);toast.timer=setTimeout(()=>t.classList.remove('show'),2600);}
+function workoutCard(w){const exs=plan.workouts[w];return `<button class="workout-card" data-action="workout" data-w="${w}"><span class="letter">${w}</span><h3>Treino ${w}</h3><p>${exs.length} exercícios</p><div class="mini-tags"><span class="mini-tag">${exs.filter(x=>periodic(x[2])).length} ondulatórios</span><span class="mini-tag alt">${exs.filter(x=>!periodic(x[2])).length} fixos</span></div></button>`;}
+function header(title,subtitle='',back='home'){return `<div class="page-header"><button class="back-button" data-nav="${back}">‹</button><div><h2>${esc(title)}</h2><p>${esc(subtitle)}</p></div></div>`;}
+function home(){const p=periodFor(view.date), rows=histories(), completedAll=rows.filter(r=>r.session.status==='completed'), month=todayISO().slice(0,7), active=Object.values(state.sessions).filter(s=>s.status==='started');return `
+<section class="card hero"><p class="small">PLANEJAMENTO 03 · ${dformat(plan.validFrom)} a ${dformat(plan.validUntil)}</p>
+<h2>${p?'Tipo '+p.type:'Ficha 03'}</h2><p>${p?p.meta.reps+' repetições e '+p.meta.rest+' de intervalo.':'Escolha uma data entre 19/10 e 12/12/2026 para realizar os treinos.'}</p>
+<div class="pill-row"><span class="pill">${p?'SEMANA '+p.week+' · '+dformat(p.starts)+' a '+dformat(p.ends):'Fora da vigência'}</span><span class="pill">Válido até 12/12</span></div>
+<div class="hero-actions"><button class="primary-button" data-nav="workouts">Ver treinos</button><button class="secondary-button" data-action="date">Trocar data</button></div></section>
+<section><div class="section-head"><h2>Seu painel</h2><button class="text-button" data-nav="history">Ver histórico</button></div><div class="quick-grid">
+<article class="card quick-card"><div class="metric">${completedAll.filter(r=>r.session.date.startsWith(month)).length}</div><p>treinos concluídos neste mês</p></article>
+<article class="card quick-card"><div class="metric">${pending().length}</div><p>exercícios pendentes da ficha atual</p></article>
+<article class="card quick-card"><div class="metric">${completedAll.length}</div><p>sessões concluídas incluindo fichas antigas</p></article>
+<article class="card quick-card"><div class="metric">4</div><p>treinos da ficha atual</p></article></div></section>
+${active.length?`<section><div class="section-head"><h2>Em andamento</h2></div>${active.map(s=>`<div class="card active-session-card"><div><h3>Treino ${s.workout}</h3><p>${dformat(s.date)} · ${counted(s)} exercícios feitos</p></div><button class="primary-button" data-action="resume" data-date="${s.date}" data-w="${s.workout}">Retomar</button></div>`).join('')}</section>`:''}
+<section><div class="section-head"><h2>Treinos</h2><button class="text-button" data-nav="workouts">Ver todos</button></div><div class="workout-grid">${Object.keys(plan.workouts).map(workoutCard).join('')}</div></section>
+<section class="card overview-card"><strong>Histórico protegido</strong><p class="small-note" style="margin-top:6px">Os registros dos planejamentos anteriores são consultados sem alterar os dados originais do aparelho. Use “Backup” antes de reinstalar ou trocar de celular.</p><div class="inline-actions"><button class="secondary-button" data-nav="history">Abrir histórico</button></div></section>`;}
+function workouts(){return header('Seus treinos','Consulte a ficha antes de começar.')+`<div class="workout-grid">${Object.keys(plan.workouts).map(workoutCard).join('')}</div>`;}
+function detail(){const w=view.workout;const p=periodFor(view.date);const s=getSession(view.date,w);if(!w||!plan.workouts[w])return workouts();return header('Treino '+w,`${plan.workouts[w].length} exercícios · ${dformat(view.date)}`,'workouts')+`<article class="card overview-card"><div class="badge-row"><span class="badge periodic ${p?p.meta.css:'fixed'}">${p?'Tipo '+p.type+' · '+p.meta.reps+' reps':'Fora da vigência'}</span><span class="badge fixed">${plan.workouts[w].filter(ex=>periodic(ex[2])).length} ondulatórios</span></div>
+<div class="inline-actions">${s?(s.status==='completed'?`<button class="secondary-button" data-action="resume" data-date="${s.date}" data-w="${w}">Ver sessão concluída</button>`:`<button class="primary-button" data-action="resume" data-date="${s.date}" data-w="${w}">Retomar treino</button>`):(p?`<button class="primary-button" data-action="start" data-w="${w}">Começar treino</button>`:`<span class="small-note">Selecione uma data dentro do plano antes de iniciar.</span>`)}<button class="ghost-button" data-action="date">Mudar data</button></div>
+<div class="exercise-summary-list">${plan.workouts[w].map(([code,name,rx,video,note])=>`<article class="exercise-row"><div class="exercise-code">${code}</div><h3 class="exercise-title">${esc(name)}</h3><p class="exercise-prescription">${esc(prescribed(rx,view.date))}</p>${note?`<div class="exercise-note">${esc(note)}</div>`:''}${video?`<a class="text-button" href="${esc(video)}" target="_blank" rel="noopener noreferrer">Vídeo ↗</a>`:''}</article>`).join('')}</div></article>`;}
+function sessionPage(){const s=getSession(view.date,view.workout);if(!s)return detail();const exs=plan.workouts[view.workout];s.currentIndex=Math.max(0,Math.min(exs.length-1,Number(s.currentIndex)||0));const [code,name,rx,video,note]=exs[s.currentIndex];const record=s.exercises[code]||{};const series=Array.isArray(record.series)?record.series:Array.from({length:expectedSets(rx)},()=>({load:'',reps:'',done:false}));const p=periodFor(s.date);const done=counted(s),readonly=s.status==='completed';const personal=state.personalNotes[plan.id+':'+code]||'';const last=shortLastRecord(name,code);return header('Treino '+s.workout,`${dformat(s.date)} · ${s.status==='completed'?'Concluído':s.status==='partial'?'Pausado':'Em andamento'}`,'workouts')+`<div class="session-frame"><article class="card session-top-card"><div class="session-header-row"><div><h3>${readonly?'Sessão concluída':'Seu treino'}</h3><p>${done} de ${exs.length} exercícios concluídos</p></div><div class="timer-pill"><span>tempo ativo</span><b id="sessionTimer">${fmtMs(elapsed(s))}</b></div></div><div class="progress-wrap"><div class="progress-label"><span>Progresso</span><span>${Math.round(done/exs.length*100)}%</span></div><div class="progress-bar"><i style="width:${done/exs.length*100}%"></i></div></div></article>
+<div class="exercise-pager">${exs.map((x,i)=>`<button class="exercise-dot ${i===s.currentIndex?'current':s.exercises[x[0]]?.done?'done':''}" data-action="jump" data-index="${i}">${i+1}</button>`).join('')}</div>
+<article class="card current-exercise-card"><div class="badge-row"><span class="badge ${periodic(rx)?'periodic '+(p?.meta.css||''):'fixed'}">${periodic(rx)?'↕ ONDULATÓRIO · TIPO '+p?.type:'fixo'}</span>${record.done?'<span class="badge done">concluído</span>':''}</div><p class="exercise-code">${code} · EXERCÍCIO ${s.currentIndex+1} DE ${exs.length}</p><h3 class="big-title">${esc(name)}</h3><p class="subline">${esc(prescribed(rx,s.date))}</p>${note?`<div class="exercise-note"><b>Personal:</b> ${esc(note)}</div>`:''}<div class="inline-actions">${video?`<a class="secondary-button" href="${esc(video)}" target="_blank" rel="noopener noreferrer">Ver vídeo ↗</a>`:''}${!readonly?`<button class="ghost-button" data-action="done-ex" data-code="${code}">${record.done?'Desmarcar exercício':'Marcar exercício feito'}</button>`:''}</div>
+${last?`<div class="last-load"><b>Último registro (${dformat(last.date)}):</b> ${esc(last.text)}</div>`:''}
+<div class="series-head"><b>Carga e repetições por série</b><span>${series.filter(z=>z.done).length}/${series.length} feitas</span></div>
+<div class="series-row series-labels"><span>Série</span><span>Carga (kg)</span><span>Reps</span><span>Feito</span></div>
+${series.map((r,i)=>`<div class="series-row"><strong>${i+1}</strong><input aria-label="Carga em kg, série ${i+1}" inputmode="decimal" data-action="set-field" data-code="${code}" data-index="${i}" data-field="load" value="${esc(r.load||'')}" placeholder="kg" ${readonly?'disabled':''}><input aria-label="Repetições, série ${i+1}" inputmode="numeric" data-action="set-field" data-code="${code}" data-index="${i}" data-field="reps" value="${esc(r.reps||'')}" placeholder="reps" ${readonly?'disabled':''}><button class="series-check ${r.done?'checked':''}" aria-label="${r.done?'Desmarcar':'Concluir'} série ${i+1}" data-action="set-done" data-code="${code}" data-index="${i}" ${readonly?'disabled':''}>${r.done?'✓':'○'}</button></div>`).join('')}
+${!readonly?`<div class="inline-actions"><button class="ghost-button" data-action="add-set" data-code="${code}">+ Série</button>${series.length>expectedSets(rx)?`<button class="text-button" data-action="remove-set" data-code="${code}">Remover última</button>`:''}</div>`:''}
+<div class="field" style="margin-top:14px"><label>Observação pessoal (desta ficha)</label><textarea data-action="personal-note" data-code="${code}" placeholder="Como foi a execução?" ${readonly?'disabled':''}>${esc(personal)}</textarea></div>
+<div class="nav-stepper"><button class="small-nav" data-action="prev">‹</button><p class="small-note">Navegue exercício por exercício.</p><button class="small-nav" data-action="next">›</button></div></article>
+${!readonly?`<div class="session-actions"><button class="secondary-button" data-action="partial">Pausar / guardar</button><button class="primary-button" data-action="finish">Finalizar treino</button></div>`:''}
+</div>`;}
+function pendingPage(){const rows=pending().filter(r=>view.filter==='all'||r.session.workout===view.filter);return header('Pendências','Apenas sessões do planejamento atual.')+`<div class="filter-row">${['all','A','B','C','D'].map(x=>`<button class="filter ${view.filter===x?'active':''}" data-action="filter" data-filter="${x}">${x==='all'?'Todos':'Treino '+x}</button>`).join('')}</div>${rows.length?`<section class="exercise-summary-list">${rows.map(({session:s,ex})=>`<div class="card pending-item"><div style="flex:1"><h3>${esc(ex[1])}</h3><p>Treino ${s.workout} · ${dformat(s.date)}</p></div><button class="primary-button" data-action="resume" data-date="${s.date}" data-w="${s.workout}">Abrir</button></div>`).join('')}</section>`:`<div class="card empty"><h2>Sem pendências</h2><p>Os exercícios que faltarem aparecerão aqui.</p></div>`}`;}
+function historyPage(){const rows=histories(), done=rows.filter(x=>x.session.status==='completed');return header('Seu histórico',`${done.length} sessões concluídas · ${new Set(rows.map(x=>x.planId)).size} planejamento(s)`)+`<section class="card overview-card"><h3>Seus dados continuam no aparelho</h3><p class="small-note">Planejamentos antigos são lidos sem modificar os registros originais. Para levar o histórico a outro aparelho, use Backup e Importar.</p><div class="inline-actions"><button class="primary-button" id="historyBackup">↓ Fazer backup</button><button class="secondary-button" id="importBackup">↑ Importar backup</button></div><p class="small-note" style="margin-top:8px">A nuvem (Supabase/Sheets) ainda não está conectada.</p></section>
+<section class="exercise-summary-list">${rows.length?rows.map(h=>{const s=h.session;const delta=(s.endedAt&&s.startedAt)?s.endedAt-s.startedAt:null;const duration=h.legacy?(delta!==null&&delta>=5*60000&&delta<=MAX_REASONABLE_DURATION_MS?fmtMs(delta):'Duração a conferir'):(s.status==='completed'?fmtMs(elapsed(s)):'—');return `<button class="card history-record" data-action="history-detail" data-id="${esc(h.id)}"><div><strong>Treino ${esc(s.workout)} · ${dformat(s.date)}</strong><p>${esc(h.planName)} · ${s.status==='completed'?'Concluído':s.status==='started'?'Em andamento':'Parcial'}</p></div><span>${duration} ›</span></button>`}).join(''):`<div class="card empty"><p>Nenhum treino encontrado neste aparelho. Use “Importar backup” para restaurar a visualização das fichas antigas.</p></div>`}</section>`;}
+function historyDetail(){const h=histories().find(x=>x.id===view.historyId);if(!h)return historyPage();const s=h.session;const names=h.names[s.workout]||{},entries=Object.entries(s.exercises||{});const start=s.startedAt,end=s.endedAt;let duration;if(h.legacy){duration=(start&&end&&end-start>=5*60000&&end-start<=MAX_REASONABLE_DURATION_MS)?fmtMs(end-start):'Duração a conferir';}else{duration=fmtMs(elapsed(s));}
+return header('Treino '+s.workout,`${dformat(s.date)} · ${h.planName}`,'history')+`<section class="card overview-card"><div class="overview-grid"><div class="meta-box"><span>Início</span><b>${timeformat(start)}</b></div><div class="meta-box"><span>Fim</span><b>${timeformat(end)}</b></div><div class="meta-box"><span>Duração</span><b>${duration}</b></div><div class="meta-box"><span>Status</span><b>${s.status==='completed'?'Concluído':s.status==='partial'?'Parcial':'Iniciado'}</b></div></div>${h.legacy?'<p class="small-note" style="margin-top:12px">Dados históricos originais em modo leitura. Durações muito curtas ou longas não são consideradas confiáveis.</p>':''}</section>
+<section class="exercise-summary-list">${entries.map(([code,rec])=>{const name=names[code]||code;const sets=Array.isArray(rec.series)?rec.series:[];const n=(h.notes||{})[h.legacy?code:plan.id+':'+code];return `<article class="card overview-card"><div class="exercise-code">${esc(code)}</div><h3 class="exercise-title">${esc(name)}</h3><p class="exercise-prescription">${rec.done?'✓ Concluído':'Não marcado como concluído'}</p>${sets.length?`<div class="history-series">${sets.map((z,i)=>`<p>${i+1}ª série: ${esc(z.load||'—')} kg × ${esc(z.reps||'—')} reps ${z.done?'✓':''}</p>`).join('')}</div>`:`<p class="small-note" style="margin-top:7px">${rec.load?'Carga: '+esc(rec.load)+' kg · ':''}${rec.sets?'Séries: '+esc(rec.sets)+' · ':''}${rec.reps?'Reps: '+esc(rec.reps):'Sem valores estruturados por série'}</p>`}${n?`<div class="exercise-note"><b>Minha anotação:</b> ${esc(n)}</div>`:''}</article>`}).join('')}</section>`;}
+function guide(){return header('Guia de execução','Recomendações da sua ficha.')+`<section class="exercise-summary-list">${plan.guides.map(([a,b,c])=>`<div class="card guide-card"><div class="guide-icon">${c}</div><h3>${esc(a)}</h3><p>${esc(b)}</p></div>`).join('')}</section>`;}
+function render(){clearInterval(timerHandle);const root=document.getElementById('app');if(!root)return;root.innerHTML=({home,workouts,detail,session:sessionPage,pending:pendingPage,history:historyPage,historyDetail,guide}[view.name]||home)();document.querySelectorAll('[data-nav]').forEach(b=>b.classList.toggle('active',b.dataset.nav===view.name));bind();if(view.name==='session'){const s=getSession(view.date,view.workout);const update=()=>{const t=document.getElementById('sessionTimer');if(t&&s)t.textContent=fmtMs(elapsed(s));};update();timerHandle=setInterval(update,1000);}}
+function navigate(name){view.name=name;render();}
+function openSession(s){view.workout=s.workout;view.date=s.date;view.name='session';render();}
+function bind(){document.querySelectorAll('[data-nav]').forEach(el=>el.addEventListener('click',()=>navigate(el.dataset.nav)));
+ document.querySelectorAll('[data-action]').forEach(el=>el.addEventListener('click',async()=>{const ac=el.dataset.action,s=getSession(view.date,view.workout),code=el.dataset.code;
+ if(ac==='date'){const v=prompt('Data (AAAA-MM-DD)',view.date);if(v&&/^\d{4}-\d{2}-\d{2}$/.test(v)&&iso(parseDate(v))===v){view.date=v;render();}return;}
+ if(ac==='workout'){view.workout=el.dataset.w;navigate('detail');return;}
+ if(ac==='start'){if(!periodFor(view.date)){alert('Data fora do planejamento 03.');return;}const s=getSession(view.date,el.dataset.w,true);if(s.status==='partial')continueSession(s);save();openSession(s);return;}
+ if(ac==='resume'){const ss=getSession(el.dataset.date,el.dataset.w);if(!ss)return;continueSession(ss);save();openSession(ss);return;}
+ if(ac==='history-detail'){view.historyId=el.dataset.id;navigate('historyDetail');return;}
+ if(ac==='filter'){view.filter=el.dataset.filter;render();return;}
+ if(!s)return;
+ if(ac==='jump'||ac==='prev'||ac==='next'){s.currentIndex=ac==='jump'?Number(el.dataset.index):Math.max(0,Math.min(plan.workouts[s.workout].length-1,s.currentIndex+(ac==='next'?1:-1)));save();render();return;}
+ const current=plan.workouts[s.workout][s.currentIndex];
+ if(ac==='set-done'||ac==='add-set'||ac==='remove-set'||ac==='done-ex'){
+   const sets=makeSets(s,code,plan.workouts[s.workout].find(x=>x[0]===code)?.[2]||current[2]);const record=s.exercises[code];
+   if(ac==='add-set')sets.push({load:'',reps:'',done:false});
+   if(ac==='remove-set'&&sets.length>expectedSets(current[2])){const last=sets[sets.length-1];if((last.load||last.reps||last.done)&&!confirm('Remover a última série e os dados dela?'))return;sets.pop();}
+   if(ac==='set-done'){const z=sets[Number(el.dataset.index)];if(z){z.done=!z.done;record.done=sets.every(x=>x.done);}}
+   if(ac==='done-ex')record.done=!record.done;
+   save();render();return;
+ }
+ if(ac==='partial'){pause(s);s.status='partial';save();navigate('home');toast('Treino guardado sem perder as séries.');return;}
+ if(ac==='finish'){const missing=plan.workouts[s.workout].filter(x=>!s.exercises[x[0]]?.done);if(missing.length){alert(`Faltam ${missing.length} exercícios. Use "Pausar / guardar" para manter as pendências, ou marque os exercícios realizados antes de finalizar.`);return;}pause(s);s.status='completed';save();navigate('home');toast('Treino concluído e salvo neste aparelho.');return;}
+ }));
+ document.querySelectorAll('[data-action="set-field"]').forEach(el=>el.addEventListener('input',()=>{const s=getSession(view.date,view.workout);const code=el.dataset.code;const rx=plan.workouts[s.workout].find(x=>x[0]===code)[2];const sets=makeSets(s,code,rx);sets[Number(el.dataset.index)][el.dataset.field]=el.value;save();}));
+ document.querySelectorAll('[data-action="personal-note"]').forEach(el=>el.addEventListener('input',()=>{state.personalNotes[plan.id+':'+el.dataset.code]=el.value;save();}));
+ const b=document.getElementById('historyBackup');if(b)b.addEventListener('click',()=>document.getElementById('backupBtn')?.click());
+ const i=document.getElementById('importBackup');if(i)i.addEventListener('click',()=>document.getElementById('restoreFile')?.click());
 }
-function saveState() { localStorage.setItem(STORAGE_KEY, JSON.stringify(state)); }
-function todayISO() {
-  const d = new Date();
-  const offset = d.getTimezoneOffset();
-  return new Date(d.getTime() - offset * 60000).toISOString().slice(0, 10);
+function safeImportBackup(data){if(!data||!Array.isArray(data.entries)||data.format!=='ondulatoria-local-backup-v1')throw Error('Arquivo diferente do backup Ondulatória.');
+ const previous=readJSON(RECOVERY_KEY)||{entries:{}};const result={entries:{...(previous.entries||{})},importedAt:new Date().toISOString()};let count=0;
+ const importedArchive=data.entries.find(x=>x.key===RECOVERY_KEY);
+ if(importedArchive){let parsed;try{parsed=JSON.parse(importedArchive.raw)}catch{};
+   if(parsed?.entries){for(const key of LEGACY_KEYS){const src=parsed.entries[key];if(!src||!src.sessions)continue;
+     const previous=result.entries[key]||{sessions:{},personalNotes:{}};
+     result.entries[key]={sessions:{...src.sessions,...previous.sessions},personalNotes:{...(src.personalNotes||{}),...(previous.personalNotes||{})}};
+     count+=Object.keys(src.sessions).length;
+   }}
+ }
+ for(const item of data.entries){if(!item||!LEGACY_KEYS.includes(item.key)||typeof item.raw!=='string')continue;let parsed;try{parsed=JSON.parse(item.raw)}catch{continue;}if(!parsed||typeof parsed.sessions!=='object'||!parsed.sessions)continue;
+   const current=result.entries[item.key]||{sessions:{},personalNotes:{}};
+   // Never erase an imported session or note; add missing values only.
+   const existingSessions=current.sessions||{};const existingNotes=current.personalNotes||{};
+   result.entries[item.key]={sessions:{...parsed.sessions,...existingSessions},personalNotes:{...parsed.personalNotes,...existingNotes}};count+=Object.keys(parsed.sessions).length;
+ }
+ // Validar a importação APÓS verificar também possível backup do plano novo.
+ // Optional current-plan backup, merged only when missing. Does not overwrite current records.
+ const currentEntry=data.entries.find(x=>x.key===STORAGE_KEY);let importedNew=0;
+ if(currentEntry){let parsed;try{parsed=JSON.parse(currentEntry.raw)}catch{};if(parsed&&parsed.sessions&&typeof parsed.sessions==='object'){
+   for(const [key,s] of Object.entries(parsed.sessions))if(!state.sessions[key]){state.sessions[key]=s;importedNew++;}
+   for(const [key,value] of Object.entries(parsed.personalNotes||{}))if(!(key in state.personalNotes))state.personalNotes[key]=value;
+ }}
+ if(!count&&!importedNew)throw Error('O arquivo não contém sessões reconhecidas.');
+ localStorage.setItem(RECOVERY_KEY,JSON.stringify(result));if(importedNew)save();return {legacy:count,newSessions:importedNew};
 }
-function parseDate(dateString) {
-  const [y,m,d] = dateString.split('-').map(Number);
-  return new Date(y, m - 1, d, 12);
-}
-function formatDate(dateString) {
-  return parseDate(dateString).toLocaleDateString('pt-BR', { day:'2-digit', month:'short', year:'numeric' }).replace('.', '');
-}
-function formatShortDate(dateString) {
-  return parseDate(dateString).toLocaleDateString('pt-BR', { day:'2-digit', month:'2-digit' });
-}
-function dayDiff(fromDate, toDate) {
-  return Math.floor((parseDate(toDate) - parseDate(fromDate)) / 86400000);
-}
-function escapeHtml(value='') {
-  return String(value).replace(/[&<>'"]/g, ch => ({ '&':'&amp;','<':'&lt;','>':'&gt;',"'":'&#39;','"':'&quot;' }[ch]));
-}
-function clamp(num, min, max) { return Math.min(Math.max(num, min), max); }
-function formatDuration(ms) {
-  const totalSeconds = Math.max(0, Math.floor(ms / 1000));
-  const h = Math.floor(totalSeconds / 3600);
-  const m = Math.floor((totalSeconds % 3600) / 60);
-  const s = totalSeconds % 60;
-  return `${String(h).padStart(2,'0')}:${String(m).padStart(2,'0')}:${String(s).padStart(2,'0')}`;
-}
-function periodFor(dateString) {
-  const cycleStart = plan.cycle.start;
-  const daysSinceStart = dayDiff(cycleStart, dateString);
-  if (daysSinceStart < 0) return { type: null, week: null, meta: null, starts: null, ends: null };
-  const weekIndex = Math.floor(daysSinceStart / 7);
-  const type = plan.cycle.types[weekIndex % plan.cycle.types.length];
-  const starts = new Date(parseDate(cycleStart).getTime() + weekIndex * 7 * 86400000);
-  const ends = new Date(starts.getTime() + 6 * 86400000);
-  const toISO = d => `${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,'0')}-${String(d.getDate()).padStart(2,'0')}`;
-  return { type, week: weekIndex + 1, meta: plan.periodization[type], starts: toISO(starts), ends: toISO(ends) };
-}
-function isPeriodized(raw='') { return raw.toLowerCase().includes('periodização'); }
-function resolvedPrescription(raw, dateString) {
-  const period = periodFor(dateString);
-  if (!isPeriodized(raw)) return raw;
-  return `${raw.replace('periodização', `${period.meta.reps} reps`)} · Tipo ${period.type}`;
-}
-function periodizedCount(workout) { return plan.workouts[workout].filter(ex => isPeriodized(ex[2])).length; }
-function getSessionKey(date, workout) { return `${date}_${workout}`; }
-function getSession(date, workout, create=false) {
-  const key = getSessionKey(date, workout);
-  if (!state.sessions[key] && create) {
-    state.sessions[key] = {
-      key, date, workout, status: 'started', startedAt: Date.now(), endedAt: null,
-      currentIndex: 0, exercises: {}
-    };
-  }
-  return state.sessions[key] || null;
-}
-function activeSession() {
-  return Object.values(state.sessions).find(s => s.status === 'started') || null;
-}
-function pendingExercises() {
-  const all = [];
-  for (const session of Object.values(state.sessions)) {
-    if (!['started', 'partial'].includes(session.status)) continue;
-    for (const ex of plan.workouts[session.workout]) {
-      const record = session.exercises[ex[0]] || {};
-      if (!record.done) all.push({ session, ex, record });
-    }
-  }
-  return all;
-}
-function completedSessionsThisMonth() {
-  const now = todayISO().slice(0, 7);
-  return Object.values(state.sessions).filter(s => s.status === 'completed' && s.date.startsWith(now)).length;
-}
-function totalWorkoutCount() {
-  return Object.values(state.sessions).filter(s => s.status === 'completed').length;
-}
-function showToast(message) {
-  const t = document.getElementById('toast');
-  t.textContent = message;
-  t.classList.add('show');
-  clearTimeout(showToast.timer);
-  showToast.timer = setTimeout(() => t.classList.remove('show'), 2400);
-}
-function navActive() {
-  document.querySelectorAll('[data-nav]').forEach(b => b.classList.toggle('active', b.dataset.nav === view.name));
-}
-function renderWorkoutCard(letter) {
-  const exs = plan.workouts[letter];
-  return `<button class="workout-card" data-action="open-workout" data-workout="${letter}">
-    <span class="letter">${letter}</span>
-    <h3>Treino ${letter}</h3>
-    <p>${exs.length} exercícios</p>
-    <div class="mini-tags">
-      <span class="mini-tag">${periodizedCount(letter)} ondulatórios</span>
-      <span class="mini-tag alt">${exs.length - periodizedCount(letter)} fixos</span>
-    </div>
-  </button>`;
-}
-function workoutFocus(letter) {
-  return ({ A:'costas, peitoral e tríceps', B:'glúteos e posteriores', C:'ombros, costas e braços', D:'membros inferiores' })[letter] || 'treino';
-}
-function renderHome() {
-  const p = periodFor(view.date);
-  const pending = pendingExercises();
-  const active = activeSession();
-  return `
-    <section class="card hero">
-      <p class="small">SEMANA ${p.week || '—'} · ${p.starts ? `${formatShortDate(p.starts)} a ${formatShortDate(p.ends)}` : ''}</p>
-      <h2>Tipo ${p.type || '—'}</h2>
-      <p>${p.meta ? `${p.meta.reps} repetições e ${p.meta.rest} de intervalo.` : 'Sem período cadastrado para a data selecionada.'}</p>
-      <div class="pill-row">
-        <span class="pill">↕ ${p.type === '01' ? 'Ondulatória em Tipo 01' : 'Ondulatória em Tipo 02'}</span>
-        <span class="pill">Válido até ${formatShortDate(plan.validUntil)}</span>
-      </div>
-      <div class="hero-actions">
-        <button class="secondary-button" data-nav="workouts">Ver treinos</button>
-        <button class="secondary-button" data-action="set-date">Trocar data</button>
-      </div>
-    </section>
-
-    ${active ? `<section><div class="section-head"><h2>Treino em andamento</h2></div><div class="card active-session-card"><div><h3>Treino ${active.workout}</h3><p>Começou às ${new Date(active.startedAt).toLocaleTimeString('pt-BR',{hour:'2-digit', minute:'2-digit'})} · ${plan.workouts[active.workout].filter(ex => active.exercises[ex[0]]?.done).length}/${plan.workouts[active.workout].length} concluídos</p></div><button class="primary-button" data-action="resume-session" data-date="${active.date}" data-workout="${active.workout}">Retomar</button></div></section>` : ''}
-
-    <section>
-      <div class="section-head"><h2>Seu painel</h2></div>
-      <div class="quick-grid">
-        <article class="card quick-card"><div class="metric">${completedSessionsThisMonth()}</div><p>treinos concluídos neste mês</p></article>
-        <article class="card quick-card"><div class="metric">${pending.length}</div><p>exercícios pendentes aguardando conclusão</p></article>
-        <article class="card quick-card"><div class="metric">${totalWorkoutCount()}</div><p>sessões concluídas desde o início do app</p></article>
-        <article class="card quick-card"><div class="metric">${Object.keys(plan.workouts).length}</div><p>treinos ativos no seu plano atual</p></article>
-      </div>
-    </section>
-
-    <section>
-      <div class="section-head"><h2>Treinos</h2><button class="text-button" data-nav="workouts">Ver todos</button></div>
-      <div class="workout-grid">${Object.keys(plan.workouts).map(renderWorkoutCard).join('')}</div>
-    </section>
-
-    <section>
-      <div class="section-head"><h2>Pendências</h2></div>
-      ${pending.length ? `<div class="card pending-card"><div class="pending-circle">◷</div><div><h3>${pending.length} exercício${pending.length > 1 ? 's' : ''} aguardando conclusão</h3><p>Os exercícios não concluídos continuam salvos para você retomar depois.</p><div class="inline-actions"><button class="primary-button" data-nav="pending">Abrir pendências</button></div></div></div>` : `<div class="card empty"><div class="empty-icon">✓</div><h2>Nada pendente</h2><p>Quando você salvar um treino parcialmente concluído, os exercícios que faltaram aparecem aqui.</p></div>`}
-    </section>`;
-}
-function renderWorkouts() {
-  return `<div class="page-header"><button class="back-button" data-nav="home">‹</button><div><h2>Seus treinos</h2><p>Abra qualquer treino para consultar. Ele só começa quando você tocar em “Começar treino”.</p></div></div><div class="workout-grid">${Object.keys(plan.workouts).map(renderWorkoutCard).join('')}</div>`;
-}
-function renderWorkoutDetail() {
-  const workout = view.workout;
-  const exs = plan.workouts[workout];
-  const p = periodFor(view.date);
-  const session = getSession(view.date, workout, false);
-  return `
-    <div class="page-header"><button class="back-button" data-nav="workouts">‹</button><div><h2>Treino ${workout}</h2><p>${workoutFocus(workout)} · ${exs.length} exercícios</p></div></div>
-    <article class="card overview-card">
-      <div class="badge-row"><span class="badge periodic ${p.meta.css}">↕ Tipo ${p.type} · ${p.meta.reps} reps</span><span class="badge fixed">${periodizedCount(workout)} exercícios ondulatórios</span></div>
-      <div class="overview-grid">
-        <div class="meta-box"><span>Faixa da semana</span><b>${p.meta.reps} repetições</b></div>
-        <div class="meta-box"><span>Intervalo</span><b>${p.meta.rest}</b></div>
-      </div>
-      <div class="inline-actions">
-        ${session && session.status === 'started' ? `<button class="primary-button" data-action="resume-session" data-date="${session.date}" data-workout="${session.workout}">Retomar treino</button>` : `<button class="primary-button" data-action="start-workout" data-workout="${workout}">Começar treino</button>`}
-        <button class="ghost-button" data-action="set-date">Mudar data</button>
-      </div>
-      <div class="exercise-summary-list">
-        ${exs.map(ex => renderExerciseSummary(ex, view.date)).join('')}
-      </div>
-    </article>`;
-}
-function renderExerciseSummary(ex, dateString) {
-  const [code, title, rx, , note] = ex;
-  const periodic = isPeriodized(rx);
-  const period = periodFor(dateString);
-  return `<div class="exercise-row"><div class="exercise-row-top"><div><div class="exercise-code">${code}</div><h3 class="exercise-title">${escapeHtml(title)}</h3></div><div class="badge-row">${periodic ? `<span class="badge periodic ${period.meta.css}">↕ ONDULATÓRIO</span>` : `<span class="badge fixed">fixo</span>`}</div></div><p class="exercise-prescription">${escapeHtml(resolvedPrescription(rx, dateString))}</p>${note ? `<div class="exercise-note"><strong>Atenção:</strong> ${escapeHtml(note)}</div>` : ''}</div>`;
-}
-function renderSession() {
-  const workout = view.workout;
-  const session = getSession(view.date, workout, false);
-  if (!session) {
-    view.name = 'workoutDetail';
-    return renderWorkoutDetail();
-  }
-  const exs = plan.workouts[workout];
-  session.currentIndex = clamp(session.currentIndex || 0, 0, exs.length - 1);
-  const current = exs[session.currentIndex];
-  const [code, title, rx, video, note] = current;
-  const record = session.exercises[code] || {};
-  const personal = state.personalNotes[code] || '';
-  const doneCount = exs.filter(ex => session.exercises[ex[0]]?.done).length;
-  const percent = Math.round(doneCount / exs.length * 100);
-  const periodic = isPeriodized(rx);
-  const p = periodFor(session.date);
-  return `
-    <div class="page-header"><button class="back-button" data-action="back-to-workout">‹</button><div><h2>Treino ${workout}</h2><p>Sessão de ${formatDate(session.date)}</p></div></div>
-    <div class="session-frame">
-      <article class="card session-top-card">
-        <div class="session-header-row">
-          <div><h3>Em andamento</h3><p>${doneCount}/${exs.length} exercícios concluídos</p></div>
-          <div class="timer-pill"><span>tempo</span><b id="sessionTimer">${formatDuration(Date.now() - session.startedAt)}</b></div>
-        </div>
-        <div class="progress-wrap"><div class="progress-label"><span>Progresso</span><span>${percent}%</span></div><div class="progress-bar"><i style="width:${percent}%"></i></div></div>
-      </article>
-
-      <div class="exercise-pager">${exs.map((ex, idx) => {
-        const isDone = !!session.exercises[ex[0]]?.done;
-        const currentClass = idx === session.currentIndex ? 'current' : (isDone ? 'done' : '');
-        return `<button class="exercise-dot ${currentClass}" data-action="jump-ex" data-index="${idx}">${idx + 1}</button>`;
-      }).join('')}</div>
-
-      <article class="card current-exercise-card">
-        <div class="badge-row">
-          <span class="badge ${periodic ? `periodic ${p.meta.css}` : 'fixed'}">${periodic ? `↕ ONDULATÓRIO · Tipo ${p.type}` : 'fixo'}</span>
-          ${record.done ? '<span class="badge done">concluído</span>' : ''}
-        </div>
-        <p class="exercise-code">${code} · Exercício ${session.currentIndex + 1} de ${exs.length}</p>
-        <h3 class="big-title">${escapeHtml(title)}</h3>
-        <p class="subline">${escapeHtml(resolvedPrescription(rx, session.date))}</p>
-        ${note ? `<div class="exercise-note"><strong>Atenção:</strong> ${escapeHtml(note)}</div>` : ''}
-        <div class="inline-actions">${video ? `<a class="secondary-button" href="${video}" target="_blank" rel="noopener">Ver vídeo ↗</a>` : `<span class="secondary-button" aria-disabled="true">Sem vídeo</span>`}<button class="ghost-button" data-action="toggle-done" data-code="${code}">${record.done ? 'Desmarcar' : 'Marcar como feito'}</button></div>
-        <div class="field-grid">
-          <div class="field"><label>Carga</label><input data-action="update-field" data-code="${code}" data-field="load" inputmode="decimal" placeholder="kg" value="${escapeHtml(record.load || '')}"></div>
-          <div class="field"><label>Séries</label><input data-action="update-field" data-code="${code}" data-field="sets" inputmode="numeric" placeholder="3" value="${escapeHtml(record.sets || '')}"></div>
-          <div class="field"><label>Reps</label><input data-action="update-field" data-code="${code}" data-field="reps" inputmode="numeric" placeholder="10" value="${escapeHtml(record.reps || '')}"></div>
-        </div>
-        <div class="field" style="margin-top:12px"><label>Observação pessoal</label><textarea data-action="personal-note" data-code="${code}" placeholder="Ex.: base mais aberta, não perder o bracing…">${escapeHtml(personal)}</textarea></div>
-        <div class="nav-stepper"><button class="small-nav" data-action="prev-ex">‹</button><p class="small-note">Use as setas para navegar exercício por exercício, sem ficar rolando a página inteira.</p><button class="small-nav" data-action="next-ex">›</button></div>
-      </article>
-
-      <div class="session-actions"><button class="secondary-button" data-action="save-partial">Guardar pendências</button><button class="primary-button" data-action="finish-session">Concluir treino</button></div>
-    </div>`;
-}
-function renderPending() {
-  const list = pendingExercises();
-  const filtered = view.pendingFilter === 'all' ? list : list.filter(x => x.session.workout === view.pendingFilter);
-  return `<div class="page-header"><button class="back-button" data-nav="home">‹</button><div><h2>Pendências</h2><p>Exercícios de sessões que ainda não foram concluídos.</p></div></div><div class="filter-row">${['all','A','B','C','D'].map(f => `<button class="filter ${view.pendingFilter === f ? 'active' : ''}" data-action="pending-filter" data-filter="${f}">${f === 'all' ? 'Todos' : `Treino ${f}`}</button>`).join('')}</div>${filtered.length ? `<section class="exercise-summary-list">${filtered.map(({session, ex}) => `<article class="card pending-item"><button class="pending-check" data-action="complete-pending" data-date="${session.date}" data-workout="${session.workout}" data-code="${ex[0]}">✓</button><div style="flex:1"><h3>${escapeHtml(ex[1])}</h3><p>Treino ${session.workout} · iniciado em ${formatDate(session.date)} · ${escapeHtml(resolvedPrescription(ex[2], session.date))}</p></div><button class="text-button" data-action="resume-partial" data-date="${session.date}" data-workout="${session.workout}">Abrir</button></article>`).join('')}</section>` : `<section class="card empty"><div class="empty-icon">✓</div><h2>Nada pendente</h2><p>Os exercícios incompletos ficarão listados aqui quando você guardar um treino pela metade.</p></section>`}`;
-}
-function renderGuide() {
-  return `<div class="page-header"><button class="back-button" data-nav="home">‹</button><div><h2>Guia de execução</h2><p>Lembretes gerais enviados pela sua personal.</p></div></div><section class="exercise-summary-list">${plan.guides.map(([title,text,icon]) => `<article class="card guide-card"><div class="guide-icon">${icon}</div><h3>${escapeHtml(title)}</h3><p>${escapeHtml(text)}</p></article>`).join('')}</section>`;
-}
-function render() {
-  clearInterval(timerHandle);
-  const app = document.getElementById('app');
-  if (view.name === 'home') app.innerHTML = renderHome();
-  else if (view.name === 'workouts') app.innerHTML = renderWorkouts();
-  else if (view.name === 'workoutDetail') app.innerHTML = renderWorkoutDetail();
-  else if (view.name === 'session') app.innerHTML = renderSession();
-  else if (view.name === 'pending') app.innerHTML = renderPending();
-  else if (view.name === 'guide') app.innerHTML = renderGuide();
-  navActive();
-  bindEvents();
-  initTimer();
-}
-function initTimer() {
-  if (view.name !== 'session') return;
-  const session = getSession(view.date, view.workout, false);
-  const el = document.getElementById('sessionTimer');
-  if (!session || !el) return;
-  const update = () => { el.textContent = formatDuration((session.endedAt || Date.now()) - session.startedAt); };
-  update();
-  timerHandle = setInterval(update, 1000);
-}
-function bindEvents() {
-  document.querySelectorAll('[data-nav]').forEach(btn => btn.addEventListener('click', () => {
-    view.name = btn.dataset.nav;
-    render();
-  }));
-  document.querySelectorAll('[data-action="set-date"]').forEach(btn => btn.addEventListener('click', () => {
-    const val = prompt('Qual data você quer consultar? Use AAAA-MM-DD.', view.date);
-    if (val && /^\d{4}-\d{2}-\d{2}$/.test(val)) {
-      view.date = val;
-      state.lastSelectedDate = val;
-      saveState();
-      render();
-    }
-  }));
-  document.querySelectorAll('[data-action="open-workout"]').forEach(btn => btn.addEventListener('click', () => {
-    view.workout = btn.dataset.workout;
-    view.name = 'workoutDetail';
-    render();
-  }));
-  document.querySelectorAll('[data-action="back-to-workout"]').forEach(btn => btn.addEventListener('click', () => {
-    view.name = 'workoutDetail';
-    render();
-  }));
-  document.querySelectorAll('[data-action="start-workout"]').forEach(btn => btn.addEventListener('click', () => {
-    view.workout = btn.dataset.workout;
-    getSession(view.date, view.workout, true);
-    view.name = 'session';
-    saveState();
-    showToast('Treino iniciado. Bom treino!');
-    render();
-  }));
-  document.querySelectorAll('[data-action="resume-session"],[data-action="resume-partial"]').forEach(btn => btn.addEventListener('click', () => {
-    view.workout = btn.dataset.workout;
-    view.date = btn.dataset.date;
-    const s = getSession(view.date, view.workout, false);
-    if (s && s.status === 'partial') s.status = 'started';
-    saveState();
-    view.name = 'session';
-    render();
-  }));
-  document.querySelectorAll('[data-action="jump-ex"]').forEach(btn => btn.addEventListener('click', () => {
-    const s = getSession(view.date, view.workout, false);
-    if (!s) return;
-    s.currentIndex = Number(btn.dataset.index);
-    saveState();
-    render();
-  }));
-  document.querySelectorAll('[data-action="prev-ex"]').forEach(btn => btn.addEventListener('click', () => {
-    const s = getSession(view.date, view.workout, false);
-    if (!s) return;
-    s.currentIndex = clamp((s.currentIndex || 0) - 1, 0, plan.workouts[s.workout].length - 1);
-    saveState();
-    render();
-  }));
-  document.querySelectorAll('[data-action="next-ex"]').forEach(btn => btn.addEventListener('click', () => {
-    const s = getSession(view.date, view.workout, false);
-    if (!s) return;
-    s.currentIndex = clamp((s.currentIndex || 0) + 1, 0, plan.workouts[s.workout].length - 1);
-    saveState();
-    render();
-  }));
-  document.querySelectorAll('[data-action="toggle-done"]').forEach(btn => btn.addEventListener('click', () => {
-    const s = getSession(view.date, view.workout, false);
-    if (!s) return;
-    const code = btn.dataset.code;
-    const current = s.exercises[code] || {};
-    s.exercises[code] = { ...current, done: !current.done, completedAt: !current.done ? Date.now() : null };
-    saveState();
-    showToast(s.exercises[code].done ? 'Exercício marcado como concluído.' : 'Exercício desmarcado.');
-    render();
-  }));
-  document.querySelectorAll('[data-action="update-field"]').forEach(el => el.addEventListener('input', () => {
-    const s = getSession(view.date, view.workout, false);
-    if (!s) return;
-    const code = el.dataset.code;
-    const field = el.dataset.field;
-    s.exercises[code] = { ...(s.exercises[code] || {}), [field]: el.value };
-    saveState();
-  }));
-  document.querySelectorAll('[data-action="personal-note"]').forEach(el => el.addEventListener('input', () => {
-    state.personalNotes[el.dataset.code] = el.value;
-    saveState();
-  }));
-  document.querySelectorAll('[data-action="save-partial"]').forEach(btn => btn.addEventListener('click', () => {
-    const s = getSession(view.date, view.workout, false);
-    if (!s) return;
-    s.status = 'partial';
-    s.endedAt = Date.now();
-    saveState();
-    showToast('Treino guardado. O que faltou foi para Pendências.');
-    view.name = 'home';
-    render();
-  }));
-  document.querySelectorAll('[data-action="finish-session"]').forEach(btn => btn.addEventListener('click', () => {
-    const s = getSession(view.date, view.workout, false);
-    if (!s) return;
-    const exs = plan.workouts[s.workout];
-    const missing = exs.filter(ex => !s.exercises[ex[0]]?.done).length;
-    if (missing && !confirm(`Ainda há ${missing} exercício${missing > 1 ? 's' : ''} sem marcar. Quer concluir mesmo assim? Eles irão para Pendências.`)) return;
-    s.status = missing ? 'partial' : 'completed';
-    s.endedAt = Date.now();
-    saveState();
-    showToast(missing ? 'Treino salvo com pendências.' : 'Treino concluído!');
-    view.name = 'home';
-    render();
-  }));
-  document.querySelectorAll('[data-action="pending-filter"]').forEach(btn => btn.addEventListener('click', () => {
-    view.pendingFilter = btn.dataset.filter;
-    render();
-  }));
-  document.querySelectorAll('[data-action="complete-pending"]').forEach(btn => btn.addEventListener('click', () => {
-    const s = getSession(btn.dataset.date, btn.dataset.workout, false);
-    if (!s) return;
-    const code = btn.dataset.code;
-    s.exercises[code] = { ...(s.exercises[code] || {}), done: true, completedAt: Date.now() };
-    const exs = plan.workouts[s.workout];
-    if (exs.every(ex => s.exercises[ex[0]]?.done)) s.status = 'completed';
-    saveState();
-    showToast('Exercício marcado como concluído.');
-    render();
-  }));
-  const resetBtn = document.getElementById('resetBtn');
-  if (resetBtn) {
-    resetBtn.addEventListener('click', () => {
-      if (confirm('Isso vai apagar os registros de teste desta versão no navegador. Continuar?')) {
-        state = defaultState();
-        saveState();
-        view = { name: 'home', workout: null, date: todayISO(), pendingFilter: 'all' };
-        render();
-        showToast('Dados de teste apagados.');
-      }
-    });
-  }
-}
-// V9: desativa temporariamente o cache offline para que novas versões atualizem sem travar.
-if ('serviceWorker' in navigator && location.protocol !== 'file:') {
-  window.addEventListener('load', async () => {
-    try {
-      const registrations = await navigator.serviceWorker.getRegistrations();
-      await Promise.all(registrations.map(registration => registration.unregister()));
-      const keys = await caches.keys();
-      await Promise.all(keys.map(key => caches.delete(key)));
-    } catch (_) {}
-  });
-}
-render();
+function bindImport(){const input=document.getElementById('restoreFile');if(!input)return;input.addEventListener('change',async()=>{const file=input.files?.[0];if(!file)return;try{const parsed=JSON.parse(await file.text());const summary=safeImportBackup(parsed);alert(`Backup lido. ${summary.legacy} sessões históricas disponíveis e ${summary.newSessions} sessões novas adicionadas sem substituir registros existentes.`);render();}catch(e){alert('Não foi possível importar: '+e.message);}finally{input.value='';}});}
+// Service worker antigo foi desativado em versões anteriores; a atualização não apaga localStorage.
+if('serviceWorker' in navigator&&location.protocol!=='file:'){window.addEventListener('load',async()=>{try{for(const r of await navigator.serviceWorker.getRegistrations())await r.unregister();}catch(_){}});}
+bindImport();render();
