@@ -1,0 +1,148 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="theme-color" content="#F8F3E8" />
+  <meta name="robots" content="noindex,nofollow" />
+  <title>Ondulatória · Teste de conexão</title>
+  <style>
+    :root{color-scheme:light;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;--bg:#F8F3E8;--card:#FFF9ED;--ink:#28374A;--terra:#754437;--green:#6B6751;--line:rgba(40,55,74,.16)}
+    *{box-sizing:border-box}html,body{margin:0;min-height:100%;background:var(--bg);color:var(--ink)}
+    body{padding:30px 16px 45px}.shell{width:min(100%,520px);margin:0 auto}
+    .top{display:flex;align-items:center;justify-content:space-between;gap:14px;margin-bottom:25px}
+    .brand{display:flex;align-items:center;gap:12px}.mark{width:45px;height:45px;display:grid;place-items:center;border-radius:17px;background:var(--ink);color:#fff;font-size:22px}
+    .overline{color:var(--terra);font-size:10px;font-weight:800;letter-spacing:1.5px;text-transform:uppercase;margin:0 0 2px}
+    .brand h1{font-size:24px;margin:0;letter-spacing:-.65px}
+    a{color:var(--terra);font-weight:700}.back{font-size:12px;text-decoration:none;white-space:nowrap}
+    h2{font-size:24px;line-height:1.2;letter-spacing:-.5px;margin:0 0 8px}
+    p{line-height:1.5}.muted{font-size:14px;color:#596171}.card{background:var(--card);border:1px solid var(--line);border-radius:24px;box-shadow:0 12px 34px rgba(40,55,74,.07);padding:22px;margin-top:14px}
+    .tag{display:inline-block;border-radius:99px;padding:7px 10px;background:#F0E5D2;color:var(--terra);font-size:11px;font-weight:800;margin-bottom:15px}
+    label{font-weight:800;display:block;font-size:13px;margin:16px 0 7px}
+    input{width:100%;border:1px solid var(--line);background:#fff;border-radius:14px;padding:13px 14px;color:var(--ink);font-size:16px;outline-offset:3px}
+    button{border:0;border-radius:15px;background:var(--ink);color:#fff;padding:13px 16px;font:inherit;font-weight:800;cursor:pointer}
+    button.secondary{color:var(--ink);background:#EEE1CB;border:1px solid var(--line)}button.tertiary{color:var(--terra);background:#fff2e7;border:1px solid var(--line)}button:disabled{opacity:.6;cursor:wait}
+    .actions{display:flex;gap:9px;flex-wrap:wrap;margin-top:14px}.actions>*{flex:1 1 auto}#message{margin:15px 0 0;padding:12px 13px;border-radius:13px;border:1px solid transparent;font-size:13px;line-height:1.45}
+    #message:empty{display:none}#message.info{background:#F0E5D2;border-color:#E4D5BB}#message.ok{background:#E9E9DF;border-color:#CBCBB5}#message.error{background:#F8E8E2;border-color:#E7C6B9;color:#7D3326}
+    .kv{display:grid;grid-template-columns:1fr auto;gap:8px;padding:11px 0;border-bottom:1px solid var(--line);font-size:13px}.kv:last-child{border:0}.kv strong{text-align:right}
+    .small{font-size:12px;color:#656F7A;line-height:1.55}
+    .hidden{display:none!important}
+  </style>
+</head>
+<body>
+  <main class="shell">
+    <div class="top">
+      <div class="brand"><div class="mark" aria-hidden="true">♡</div><div><p class="overline">SEU APP DE TREINO</p><h1>Ondulatória</h1></div></div>
+      <a class="back" href="./">← Voltar ao app</a>
+    </div>
+
+    <section class="card">
+      <span class="tag">ETAPA 3 · CONEXÃO SEGURA</span>
+      <h2>Seu histórico, agora com conta</h2>
+      <p class="muted">Vamos primeiro testar seu login e o acesso às tabelas protegidas. Esta página <strong>não importa, envia, apaga ou altera</strong> nenhum registro de treino.</p>
+
+      <form id="emailForm">
+        <label for="email">E-mail da sua conta</label>
+        <input type="email" id="email" name="email" autocomplete="email" inputmode="email" required placeholder="seuemail@exemplo.com" maxlength="254" />
+        <div class="actions"><button type="submit" id="sendBtn">Receber link de acesso</button></div>
+      </form>
+
+      <div id="loggedIn" class="hidden">
+        <div class="kv"><span>Conexão</span><strong id="connection">Conectada</strong></div>
+        <div class="kv"><span>Conta</span><strong id="account">—</strong></div>
+        <div class="kv"><span>Planejamentos na nuvem</span><strong id="plansCount">—</strong></div>
+        <div class="kv"><span>Sessões na nuvem</span><strong id="sessionsCount">—</strong></div>
+        <div class="kv"><span>Backups na nuvem</span><strong id="backupsCount">—</strong></div>
+        <div class="actions"><button type="button" class="secondary" id="testBtn">Testar acesso de leitura</button><button type="button" class="tertiary" id="logoutBtn">Sair da conta</button></div>
+      </div>
+      <div id="message" role="status" aria-live="polite"></div>
+    </section>
+
+    <section class="card">
+      <h2 style="font-size:17px">O que acontece nesta etapa?</h2>
+      <p class="small">O Supabase envia um link de acesso para o e-mail informado. Ao abrir o link, esta página confirma sua conta e faz apenas leituras nas tabelas. É normal aparecer <strong>zero sessões na nuvem</strong> por enquanto: suas 47 sessões antigas continuam no armazenamento do Ondulatória e no arquivo JSON de backup.</p>
+      <p class="small"><strong>Não apague nem reinstale seu aplicativo.</strong> Seu histórico não será migrado até confirmarmos o acesso e criarmos uma cópia integral no banco.</p>
+    </section>
+  </main>
+
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.min.js"></script>
+  <script>
+  (() => {
+    'use strict';
+    const PROJECT_URL = 'https://njngekktobpeuonpmiyi.supabase.co';
+    const PUBLISHABLE_KEY = 'sb_publishable_pEd4YdU51mUDwlziNgckGg_yrgPXJzR';
+    const form = document.getElementById('emailForm');
+    const sendBtn = document.getElementById('sendBtn');
+    const loggedIn = document.getElementById('loggedIn');
+    const message = document.getElementById('message');
+    const account = document.getElementById('account');
+    const testBtn = document.getElementById('testBtn');
+    const logoutBtn = document.getElementById('logoutBtn');
+    const display = (msg, type='info') => {message.textContent = msg; message.className=type;};
+    if (!window.supabase || typeof window.supabase.createClient !== 'function') {
+      display('Não foi possível carregar a biblioteca do Supabase. Confirme que você está com internet e recarregue a página.', 'error');
+      sendBtn.disabled = true;
+      return;
+    }
+    const client = window.supabase.createClient(PROJECT_URL, PUBLISHABLE_KEY, {
+      auth: {persistSession:true,autoRefreshToken:true,detectSessionInUrl:true,flowType:'implicit'}
+    });
+
+    async function checkAccess() {
+      testBtn.disabled = true;
+      try {
+        const tables = [['ond_plans','plansCount'],['ond_sessions','sessionsCount'],['ond_backups','backupsCount']];
+        let success = true;
+        for (const [table,id] of tables) {
+          const {count,error} = await client.from(table).select('*',{count:'exact',head:true});
+          if (error) {document.getElementById(id).textContent='Erro';success=false;display('Problema ao ler '+table+': '+error.message,'error');}
+          else document.getElementById(id).textContent=String(count ?? 0);
+        }
+        if (success) display('Login confirmado! Acesso de leitura às tabelas protegido pelo Supabase está funcionando. Nenhuma sessão foi enviada.', 'ok');
+      } catch (e) {display('Não foi possível verificar a conexão: '+e.message,'error');}
+      finally {testBtn.disabled = false;}
+    }
+
+    async function checkUser() {
+      try {
+        const {data,error}=await client.auth.getUser();
+        if (error || !data?.user) {
+          loggedIn.classList.add('hidden');form.classList.remove('hidden');return;
+        }
+        form.classList.add('hidden');loggedIn.classList.remove('hidden');
+        account.textContent = data.user.email || 'Conta autenticada';
+        await checkAccess();
+      } catch (e) {display('Não foi possível consultar sua sessão: '+e.message,'error');}
+    }
+
+    form.addEventListener('submit',async(event)=>{
+      event.preventDefault();
+      const email=document.getElementById('email').value.trim();
+      if (!email) return;
+      sendBtn.disabled=true;
+      try {
+        const destination = new URL('conta.html',window.location.href).href;
+        const {error}=await client.auth.signInWithOtp({email,options:{emailRedirectTo:destination,shouldCreateUser:true}});
+        if (error) throw error;
+        display('Se o e-mail estiver autorizado no projeto, você receberá um link de acesso. Abra-o preferencialmente no mesmo navegador.','ok');
+      } catch(e) {
+        display('Não foi possível enviar o link: '+e.message+'. Em projetos novos, o envio de e-mail pode estar restrito aos membros autorizados da organização.','error');
+      } finally {sendBtn.disabled=false;}
+    });
+    testBtn.addEventListener('click',checkAccess);
+    logoutBtn.addEventListener('click',async()=>{
+      const {error}=await client.auth.signOut();
+      if(error) {display(error.message,'error');return;}
+      form.classList.remove('hidden');loggedIn.classList.add('hidden');
+      display('Você saiu da conta. Seus dados locais de treino continuam intocados.');
+    });
+    client.auth.onAuthStateChange((event)=>{
+      if(event==='SIGNED_IN'||event==='SIGNED_OUT'||event==='INITIAL_SESSION') {
+        setTimeout(checkUser,0);
+      }
+    });
+    checkUser();
+  })();
+  </script>
+</body>
+</html>
