@@ -1062,3 +1062,15 @@ h1 {
 .badge.periodic.type-03{background:#f1e3bb;color:#735827;}
 .badge.periodic.type-04{background:#dce8d2;color:#54653e;}
 @media(max-width:380px){#app{padding-left:11px;padding-right:11px}.series-row{gap:5px;grid-template-columns:28px minmax(0,1fr) minmax(0,1fr) 40px}.nav-item small{font-size:9px}}
+
+/* V16: painel de sincronização; não altera as cores do app */
+.cloud-modal[hidden], .cloud-modal section[hidden] {display:none!important}
+.cloud-modal {position:fixed;inset:0;z-index:9999;background:rgba(40,55,74,.56);padding:18px;display:flex;align-items:center;justify-content:center;overflow-y:auto}
+.cloud-card{width:min(100%,480px);max-height:calc(100vh - 40px);overflow-y:auto;border-radius:22px;background:#FFF9ED;border:1px solid rgba(40,55,74,.14);padding:19px;box-shadow:0 22px 70px rgba(40,55,74,.26);color:#28374A}
+.cloud-card-head{display:flex;justify-content:space-between;align-items:center;gap:12px}
+.cloud-card-head h2{margin:0;font-size:20px}.cloud-close{border:0;background:#EFE3CD;color:#28374A;border-radius:12px;width:36px;height:36px;font-weight:bold}
+.cloud-lead,.cloud-footnote{color:#5B6370;line-height:1.45;font-size:12px}.cloud-status{margin:14px 0;padding:12px;border-radius:13px;background:#EFE3CD;font-size:12px;line-height:1.45;font-weight:700;overflow-wrap:anywhere}
+.cloud-card label{display:block;margin:10px 0 6px;font-size:12px;font-weight:850}.cloud-card input{width:100%;padding:12px 11px;border-radius:12px;border:1px solid rgba(40,55,74,.2);background:white;color:#28374A;font-size:14px}
+.cloud-primary,.cloud-secondary{border:0;border-radius:13px;padding:12px 14px;font-size:13px;font-weight:850;cursor:pointer}.cloud-primary{background:#28374A;color:#fff}.cloud-secondary{background:#EFE3CD;color:#28374A}.cloud-card #cloudSignIn{display:block;width:100%;margin-top:14px}
+.cloud-actions{display:flex;gap:8px;flex-wrap:wrap}.cloud-account{font-size:12px;color:#754437;font-weight:750;margin:8px 0}.cloud-card a{color:#754437;text-decoration:underline;font-weight:750}
+.cloud-card button:disabled{opacity:.6;cursor:wait}

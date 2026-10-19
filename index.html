@@ -8,9 +8,9 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="default" />
   <meta name="apple-mobile-web-app-title" content="Ondulatória" />
   <meta name="description" content="Controle pessoal de treino ondulatório." />
-  <link rel="manifest" href="manifest.webmanifest?v=15" />
-  <link rel="apple-touch-icon" href="apple-touch-icon.png?v=15" />
-  <link rel="stylesheet" href="styles.css?v=15" />
+  <link rel="manifest" href="manifest.webmanifest?v=16" />
+  <link rel="apple-touch-icon" href="apple-touch-icon.png?v=16" />
+  <link rel="stylesheet" href="styles.css?v=16" />
   <title>Ondulatória · Planejamento 03</title>
 </head>
 <body>
@@ -23,7 +23,8 @@
           <h1>Ondulatória</h1>
         </div>
       </div>
-      <button class="icon-button" id="backupBtn" title="Exportar histórico" aria-label="Exportar histórico" style="width:auto; min-width:44px; padding:0 12px; font-size:13px; white-space:nowrap">↓ Backup</button>
+      <div style="display:flex;align-items:center;gap:6px;min-width:0"><button class="icon-button" type="button" id="cloudBtn" style="width:40px;min-width:40px;padding:0;font-size:19px;white-space:nowrap" title="Sincronização com a nuvem" aria-label="Abrir sincronização com a nuvem">☁</button>
+      <button class="icon-button" id="backupBtn" title="Exportar histórico" aria-label="Exportar histórico" style="width:auto; min-width:44px; padding:0 9px; font-size:12px; white-space:nowrap">↓ Backup</button></div>
     </header>
 
     <main id="app" aria-live="polite"></main>
@@ -36,9 +37,32 @@
       <button data-nav="history" class="nav-item"><span>▦</span><small>Histórico</small></button>
     </nav>
   </div>
+  <div id="cloudModal" class="cloud-modal" hidden>
+    <div class="cloud-card" role="dialog" aria-modal="true" aria-labelledby="cloudTitle">
+      <div class="cloud-card-head"><h2 id="cloudTitle">☁ Sincronização</h2><button type="button" id="cloudClose" aria-label="Fechar" class="cloud-close">✕</button></div>
+      <p class="cloud-lead">Treinos continuam salvos no iPhone. Quando você conectar sua conta, os registros da ficha 03 serão enviados ao Supabase automaticamente.</p>
+      <div id="cloudStatusText" class="cloud-status" role="status" aria-live="polite">Verificando conexão…</div>
+      <section id="cloudLogin" hidden>
+        <label for="cloudEmail">E-mail da conta Supabase</label>
+        <input type="email" id="cloudEmail" autocomplete="email" placeholder="seu@email.com" />
+        <label for="cloudPassword">Senha</label>
+        <input type="password" id="cloudPassword" autocomplete="current-password" placeholder="Sua senha da conta" />
+        <button type="button" id="cloudSignIn" class="cloud-primary">Entrar e sincronizar</button>
+        <p class="cloud-footnote">O login é da sua conta Ondulatória, não a senha do banco de dados. Se você entrou antes por link de e-mail, configure uma senha em <a href="conta.html" target="_blank" rel="noopener noreferrer">Minha conta</a>, estando conectada no mesmo navegador.</p>
+      </section>
+      <section id="cloudLogged" hidden>
+        <div class="cloud-account" id="cloudAccount">Conta conectada</div>
+        <p class="cloud-footnote" id="cloudCounters">—</p>
+        <div class="cloud-actions"><button type="button" id="cloudSyncNow" class="cloud-primary">Sincronizar agora</button><button type="button" id="cloudSignOut" class="cloud-secondary">Sair</button></div>
+      </section>
+      <p class="cloud-footnote">Registros antigos importados não serão modificados. Google Sheets ainda não está sincronizado. Em caso de falha, os treinos permanecem no aparelho e o envio pode ser repetido.</p>
+    </div>
+  </div>
   <input id="restoreFile" type="file" accept=".json,application/json" hidden>
   <div id="toast" class="toast" role="status" aria-live="polite"></div>
-  <script src="app.js?v=15"></script>
+  <script src="app.js?v=16"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.min.js"></script>
+  <script src="sync.js?v=16"></script>
   <script>
     // Backup não destrutivo: lê todas as chaves históricas e NÃO as altera.
     (function () {
