@@ -53,6 +53,17 @@
         <div class="kv"><span>Planejamentos na nuvem</span><strong id="plansCount">—</strong></div>
         <div class="kv"><span>Sessões na nuvem</span><strong id="sessionsCount">—</strong></div>
         <div class="kv"><span>Backups na nuvem</span><strong id="backupsCount">—</strong></div>
+        <div style="padding:12px;background:#F8F3E8;border-radius:14px;margin:15px 0">
+          <strong style="font-size:13px">Criar senha para entrar pelo aplicativo</strong>
+          <p class="small">Depois de definir a senha, você poderá conectar o Ondulatória instalado no iPhone sem receber links de e-mail a cada acesso.</p>
+          <form id="passwordForm">
+            <label for="newPassword">Nova senha (mínimo 10 caracteres)</label>
+            <input type="password" id="newPassword" minlength="10" autocomplete="new-password" required placeholder="Uma senha forte e exclusiva" />
+            <label for="confirmPassword">Repita a nova senha</label>
+            <input type="password" id="confirmPassword" minlength="10" autocomplete="new-password" required placeholder="Repita a senha" />
+            <div class="actions"><button type="submit" id="savePasswordBtn">Salvar senha</button></div>
+          </form>
+        </div>
         <div class="actions"><button type="button" class="secondary" id="testBtn">Testar acesso de leitura</button><button type="button" class="tertiary" id="logoutBtn">Sair da conta</button></div>
       </div>
       <div id="message" role="status" aria-live="polite"></div>
@@ -128,6 +139,22 @@
       } catch(e) {
         display('Não foi possível enviar o link: '+e.message+'. Em projetos novos, o envio de e-mail pode estar restrito aos membros autorizados da organização.','error');
       } finally {sendBtn.disabled=false;}
+    });
+    document.getElementById('passwordForm').addEventListener('submit',async(e)=>{
+      e.preventDefault();
+      const pass=document.getElementById('newPassword').value;
+      const confirmation=document.getElementById('confirmPassword').value;
+      if(pass!==confirmation){display('As duas senhas não coincidem.','error');return;}
+      const btn=document.getElementById('savePasswordBtn');btn.disabled=true;
+      try{
+        const {data:{user},error:userError}=await client.auth.getUser();
+        if(userError||!user)throw Error('Sua sessão de login expirou. Entre novamente antes de configurar a senha.');
+        const {error}=await client.auth.updateUser({password:pass});
+        if(error)throw error;
+        e.target.reset();
+        display('Senha definida com sucesso. Agora você pode entrar no Ondulatória instalado usando seu e-mail e esta senha.','ok');
+      }catch(error){display('Não foi possível salvar a senha: '+error.message,'error');}
+      finally{btn.disabled=false;}
     });
     testBtn.addEventListener('click',checkAccess);
     logoutBtn.addEventListener('click',async()=>{
